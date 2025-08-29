@@ -1,0 +1,114 @@
+Probablemente hayas oído hablar de la estructura de datos deque (doble cola), que permite insertar y sacar elementos de manera eficiente tanto del frente como de la parte trasera de la cola. Dependiendo de la implementación, también permite un acceso aleatorio eficiente a cualquier índice del elemento de la cola. ¡Ahora, queremos llevar esta estructura de datos al siguiente nivel, la teque (cola triple)!
+
+La teque admite las siguientes cuatro operaciones:
+
+push_back x: inserta el elemento 
+x
+x en la parte trasera de la teque.
+
+push_front x: inserta el elemento 
+x
+x en el frente de la teque.
+
+push_middle x: inserta el elemento 
+x
+x en el medio de la teque. El elemento insertado 
+x
+x ahora se convierte en el nuevo elemento medio de la teque. Si 
+k
+k es el tamaño de la teque antes de la inserción, el índice de inserción para 
+x
+x es 
+(
+k
++
+1
+)
+/
+2
+(k+1)/2 (usando indexación basada en 
+0
+0).
+
+get i: imprime el elemento de índice 
+i
+th
+i 
+th
+  (
+0
+0-basado) de la teque.
+
+Entrada
+La primera línea contiene un entero 
+N
+N (
+1
+≤
+N
+≤
+10
+6
+1≤N≤10 
+6
+ ) que indica el número de operaciones para la teque. Cada una de las siguientes 
+N
+N líneas contiene una cadena 
+S
+S, que indica uno de los comandos anteriores, seguido de un entero 
+x
+x. Si 
+S
+S es un comando push_back, push_front, o push_middle, 
+x
+x (
+1
+≤
+x
+≤
+10
+9
+1≤x≤10 
+9
+ ), de lo contrario, para un comando get, 
+i
+i (
+0
+≤
+i
+≤
+(
+size of teque
+)
+−
+1
+0≤i≤(size of teque)−1). Garantizamos que la teque no está vacía cuando se da algún comando get.
+
+Salida
+Para cada comando get i, imprime el valor dentro del elemento de índice 
+i
+th
+i 
+th
+  de la teque en una nueva línea.
+
+Advertencia
+Los archivos de E/S son grandes. Por favor, utiliza métodos de E/S rápidos.
+
+Ejemplo 1
+Inputcopy	Outputcopy
+9
+push_back 9
+push_front 3
+push_middle 5
+get 0
+get 1
+get 2
+push_middle 1
+get 1
+get 2
+3
+5
+9
+5
+1

@@ -1,0 +1,24 @@
+Decidido a descubrir el antiguo misterio—el sonido que hace el zorro—te adentraste en el bosque, armado con un muy buen grabador de audio digital. Sin embargo, el bosque está lleno de voces de animales, y en tu grabación, se pueden escuchar muchos sonidos diferentes. Pero estás bien preparado para tu tarea: sabes exactamente todos los sonidos que hacen otros animales. Por lo tanto, el resto de la grabación—todos los ruidos no identificados—debe haber sido hecho por el zorro.
+
+Entrada
+La primera línea de la entrada contiene el número de casos de prueba 
+T
+T. Las descripciones de los casos de prueba siguen:
+
+La primera línea de cada caso de prueba contiene la grabación—palabras sobre el alfabeto inglés en minúsculas, separadas por espacios. Cada una contiene como máximo 100 letras y no hay más de 100 palabras. Las siguientes líneas son tu información pre-recolectada sobre otros animales, en el formato <animal> hace <sonido>. No hay más de 100 animales, sus nombres no son más largos de 100 letras cada uno y son nombres reales de animales en inglés. No hay el zorro hace ... entre estas líneas.
+
+La última línea del caso de prueba es exactamente la pregunta que se supone que debes responder: ¿qué dice el zorro?
+
+Salida
+Para cada caso de prueba, imprime una línea que contenga los sonidos hechos por el zorro, en el orden de la grabación. Puedes asumir que el zorro no estuvo en silencio (contrario a la creencia popular, los zorros no se comunican por código Morse).
+
+Ejemplo 1
+Inputcopy	Outputcopy
+1
+toot woof wa ow ow ow pa blub blub pa toot pa blub pa pa ow pow toot
+dog goes woof
+fish goes blub
+elephant goes toot
+seal goes ow
+what does the fox say?
+wa pa pa pa pa pa pow

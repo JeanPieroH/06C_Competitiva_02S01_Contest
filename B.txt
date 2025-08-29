@@ -1,0 +1,44 @@
+Una secuencia de 
+n
+>
+0
+n>0 enteros se llama un saltador alegre si los valores absolutos de la diferencia entre elementos sucesivos toman todos los valores de 
+1
+1 a través de 
+n
+−
+1
+n−1. Por ejemplo,
+
+1 4 2 3
+es un saltador alegre, porque las diferencias absolutas son 
+3
+3, 
+2
+2, y 
+1
+1 respectivamente. La definición implica que cualquier secuencia de un solo entero es un saltador alegre. Debes escribir un programa para determinar si cada una de una serie de secuencias es un saltador alegre o no.
+
+Entrada
+Cada línea de entrada contiene un entero 
+n
+≤
+3000
+n≤3000 seguido de 
+n
+n enteros que representan la secuencia. Los valores en la secuencia son como máximo 
+300
+000
+300000 en valor absoluto. La entrada contiene como máximo 
+10
+10 líneas.
+
+Salida
+Para cada línea de entrada, genera una línea de salida que diga “Alegre” o “No alegre”.
+
+Ejemplo 1
+Inputcopy	Outputcopy
+4 1 4 2 3
+5 1 4 2 -1 6
+Jolly
+Not jolly
