@@ -1,44 +1,65 @@
-Una secuencia de 
-n
->
-0
-n>0 enteros se llama un saltador alegre si los valores absolutos de la diferencia entre elementos sucesivos toman todos los valores de 
-1
-1 a través de 
-n
-−
-1
-n−1. Por ejemplo,
+¡Buenos días! ¡Este es tu despertador a las 5 de la mañana! Es necesario la alarma por si te toca el curso de computación gráfica, y posiblemente te quiten puntos si llegas muchas veces tarde, o posiblemente te bajen 4 puntos en el examen final...
 
-1 4 2 3
-es un saltador alegre, porque las diferencias absolutas son 
-3
-3, 
-2
-2, y 
-1
-1 respectivamente. La definición implica que cualquier secuencia de un solo entero es un saltador alegre. Debes escribir un programa para determinar si cada una de una serie de secuencias es un saltador alegre o no.
+Acabas de despertar. Necesitas desesperadamente café... y... más café..., y tu desayuno que preparaste ayer por la noche para ahorrar tiempo en la mañana. Y café.
+
+Para recalentar tu desayuno, usas el microondas, intentando calentarlo durante 
+k
+k segundos. Debes ingresar 
+k
+k en el teclado del microondas:
+
+123
+456
+789
+_0_
+ 
+ Figura 1: Distribución del teclado
+Como aún no has tomado tu café, tu mano solo puede moverse hacia adelante o hacia abajo. Sigue cayendo en un intento desesperado de volver a echarte. Solo puedes ingresar un número si tu mano se mueve hacia abajo y/o hacia la derecha. No puedes retroceder hacia la izquierda, ni mover tu mano hacia arriba, aunque puedes presionar la misma tecla nuevamente. Y otra vez... y otra vez...
+
+Por ejemplo, puedes ingresar el número 
+180
+180 o 
+49
+49, pero no 
+98
+98 o 
+132
+132. Ingresa un número que esté lo más cerca posible de 
+k
+k. Si hay dos soluciones, ingresa cualquiera de ellas. Estás demasiado somnoliento para preocuparte realmente. La regla de restar puntaje por llegar tarde causó que empiezes agitado el día de hoy. Y necesitas café.
 
 Entrada
-Cada línea de entrada contiene un entero 
-n
+La primera línea de entrada contiene el número de casos de prueba 
+T
+T (
+1
 ≤
-3000
-n≤3000 seguido de 
-n
-n enteros que representan la secuencia. Los valores en la secuencia son como máximo 
-300
-000
-300000 en valor absoluto. La entrada contiene como máximo 
-10
-10 líneas.
+T
+≤
+200
+1≤T≤200). Las descripciones de los casos de prueba siguen a continuación:
+
+Cada caso de prueba consiste en una línea que contiene un entero 
+k
+k (
+1
+≤
+k
+≤
+200
+1≤k≤200).
 
 Salida
-Para cada línea de entrada, genera una línea de salida que diga “Alegre” o “No alegre”.
+Para cada caso de prueba, muestra un número que esté más cerca de 
+k
+k y que pueda ser ingresado en el teclado.
 
 Ejemplo 1
 Inputcopy	Outputcopy
-4 1 4 2 3
-5 1 4 2 -1 6
-Jolly
-Not jolly
+3
+180
+83
+132
+180
+80
+133

@@ -1,68 +1,18 @@
-Dee Siduous es una botánica especializada en árboles. Gran parte de su investigación gira en torno a la formación de los anillos de los árboles y lo que estos revelan sobre las condiciones de crecimiento a lo largo de la vida del árbol. Tiene una teoría y quiere hacer algunas simulaciones para ver si se sostiene con la evidencia recogida en el campo.
-
-Una tarea importante es determinar el número esperado de anillos dado el contorno de un árbol. Dee ha decidido modelar una sección transversal del árbol en una cuadrícula bidimensional, donde el interior del árbol está representado por un polígono cerrado de casillas de la cuadrícula. Dado este conjunto de casillas, asigna los anillos desde la parte exterior del árbol hacia el interior de la siguiente manera: llamando “anillo 
-0
-0” a las casillas que no pertenecen al árbol, cada anillo 
-n
-n está formado por todas aquellas casillas que tienen al menos una casilla del anillo 
-(
-n
-−
-1
-)
-(n−1) como vecina (vecinas son las casillas que comparten un borde).
-
-Un ejemplo de esto se muestra en la figura a continuación.
-
-\includegraphics[width=0.60\textwidth ]{ring}
-Figura D.1
-La mayoría de los modelos de Dee han sido dibujados en papel cuadriculado, y ahora te ha pedido que escribas un programa para hacerlo automáticamente por ella. Así usará menos papel y ahorrará algo de 
-…
-…, bueno, ya sabes.
+Se te dan n puntos en un plano. Todos los puntos son distintos y no hay tres de ellos que estén en la misma línea. Encuentra el número de paralelogramos con los vértices en los puntos dados.
 
 Entrada
-La entrada comienza con una línea que contiene dos enteros positivos 
-n
-n 
-m
-m que indican el número de filas y columnas en la cuadrícula del árbol, donde 
-n
-,
-m
-≤
-100
-n,m≤100. Luego vienen 
-n
-n filas con 
-m
-m caracteres cada una. Estos caracteres serán ‘T’ para casillas del árbol o ‘.’ para casillas vacías.
+La primera línea de la entrada contiene un entero n (1 ≤ n ≤ 2000) — el número de puntos.
+
+Cada una de las siguientes n líneas contiene dos enteros (xi, yi) (0 ≤ xi, yi ≤ 109) — las coordenadas del i-ésimo punto.
 
 Salida
-Imprime una cuadrícula con los números de los anillos. Si el número total de anillos es menor que 10, usa dos caracteres por casilla; si es 10 o más, usa tres caracteres por casilla. Justifica a la derecha todos los números de anillo en las casillas y rellena con ‘.’ los espacios restantes.
+Imprime el único entero c — el número de paralelogramos con los vértices en los puntos dados.
 
-Si una fila o columna no contiene ningún número de anillo, igual debe imprimirse, completamente rellena con ‘.’.
-
-Ejemplo 1
+Ejemplos
 Inputcopy	Outputcopy
-6 6
-.TT...
-TTTT..
-TTTTT.
-TTTTT.
-TTTTTT
-..T...
-...1.1......
-.1.2.2.1....
-.1.2.3.2.1..
-.1.2.3.2.1..
-.1.1.2.1.1.1
-.....1......
-Ejemplo 2
-Inputcopy	Outputcopy
-3 4
-TT..
-TT..
-....
-.1.1....
-.1.1....
-........
+4
+0 1
+1 0
+1 1
+2 0
+1
