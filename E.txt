@@ -1,18 +1,296 @@
-Se te dan n puntos en un plano. Todos los puntos son distintos y no hay tres de ellos que estén en la misma línea. Encuentra el número de paralelogramos con los vértices en los puntos dados.
+Dadas dos matrices de enteros positivos distintos 
+a
+a y 
+b
+b de longitud 
+n
+n, queremos que ambas matrices sean iguales. Dos matrices 
+x
+x y 
+y
+y de longitud 
+k
+k se consideran iguales cuando para todo 
+1
+≤
+i
+≤
+k
+1≤i≤k, 
+x
+i
+=
+y
+i
+x 
+i
+​
+ =y 
+i
+​
+ .
+
+Ahora, en un movimiento, puedes elegir un índice 
+l
+l y 
+r
+r en 
+a
+a (
+l
+≤
+r
+l≤r) y cambiar de lugar 
+a
+l
+a 
+l
+​
+  y 
+a
+r
+a 
+r
+​
+ ; luego eliges un 
+p
+p y 
+q
+q (
+p
+≤
+q
+p≤q) en 
+b
+b tal que 
+r
+−
+l
+=
+q
+−
+p
+r−l=q−p y haces un intercambio entre 
+b
+p
+b 
+p
+​
+  y 
+b
+q
+b 
+q
+​
+ .
+
+¿Es posible hacer que ambas matrices sean iguales?
 
 Entrada
-La primera línea de la entrada contiene un entero n (1 ≤ n ≤ 2000) — el número de puntos.
+Cada prueba contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba 
+t
+t (
+1
+≤
+t
+≤
+2
+⋅
+10
+4
+1≤t≤2⋅10 
+4
+ ). A continuación, se describen los casos de prueba.
 
-Cada una de las siguientes n líneas contiene dos enteros (xi, yi) (0 ≤ xi, yi ≤ 109) — las coordenadas del i-ésimo punto.
+La primera línea de cada caso contiene un entero 
+n
+n (
+1
+≤
+n
+≤
+10
+5
+1≤n≤10 
+5
+ ) — la longitud de las matrices 
+a
+a y 
+b
+b.
+
+La segunda línea de cada caso contiene 
+n
+n enteros distintos 
+a
+1
+,
+a
+2
+,
+a
+3
+,
+…
+,
+a
+n
+a 
+1
+​
+ ,a 
+2
+​
+ ,a 
+3
+​
+ ,…,a 
+n
+​
+  (
+1
+≤
+a
+i
+≤
+2
+⋅
+10
+5
+1≤a 
+i
+​
+ ≤2⋅10 
+5
+ ) — los números en la matriz 
+a
+a.
+
+La tercera línea de cada caso contiene 
+n
+n enteros distintos 
+b
+1
+,
+b
+2
+,
+b
+3
+,
+…
+,
+b
+n
+b 
+1
+​
+ ,b 
+2
+​
+ ,b 
+3
+​
+ ,…,b 
+n
+​
+  (
+1
+≤
+b
+i
+≤
+2
+⋅
+10
+5
+1≤b 
+i
+​
+ ≤2⋅10 
+5
+ ) — los números en la matriz 
+b
+b.
+
+Se garantiza que la suma de 
+n
+n en todos los casos no supera 
+10
+5
+10 
+5
+ .
 
 Salida
-Imprime el único entero c — el número de paralelogramos con los vértices en los puntos dados.
+Para cada caso, imprime "YES" si las matrices 
+a
+a y 
+b
+b pueden hacerse iguales. De lo contrario, imprime "NO". Puedes escribir la respuesta en mayúsculas o minúsculas, o una mezcla de ambas. Por ejemplo, "yEs", "yes", "Yes" y "YES" serán aceptadas como respuestas afirmativas.
 
 Ejemplos
 Inputcopy	Outputcopy
+6
 4
-0 1
-1 0
-1 1
-2 0
+1 2 3 4
+1 2 3 4
+5
+1 3 4 2 5
+7 1 2 5 4
+4
+1 2 3 4
+4 3 2 1
+3
+1 2 3
+1 3 2
+5
+1 5 7 1000 4
+4 1 7 5 1000
+3
+1 4 2
+1 3 2
+YES
+NO
+YES
+NO
+NO
+NO
+Nota
+En el primer caso de prueba, no necesitas hacer ninguna operación porque las matrices ya son iguales.
+
+En el segundo caso, se puede demostrar que no hay forma de hacer que las matrices sean iguales.
+
+En el tercer caso, una forma de igualar las matrices es primero elegir 
+l
+=
 1
+l=1, 
+r
+=
+3
+r=3, 
+p
+=
+1
+p=1, 
+q
+=
+3
+q=3 y luego elegir 
+l
+=
+1
+l=1, 
+r
+=
+2
+r=2, 
+p
+=
+3
+p=3, 
+q
+=
+4
+q=4.
