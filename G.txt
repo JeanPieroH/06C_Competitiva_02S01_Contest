@@ -1,0 +1,58 @@
+G. Vasya
+time limit per test2 s.
+memory limit per test256 MB
+Vasya es un hechicero que lucha contra monstruos. Nuevamente. Hay n
+ monstruos parados en fila, la cantidad de puntos de salud del i
+-ésimo monstruo es ai
+.
+
+Vasya es un hechicero muy poderoso que conoce muchos hechizos sobrealimentados. En esta pelea, decidió usar un hechizo de relámpago encadenado para derrotar a todos los monstruos. Veamos cómo funciona este hechizo.
+
+Primero, Vasya elige un índice i
+ de algún monstruo (1≤i≤n
+) y el poder inicial del hechizo x
+. Luego, el hechizo golpea a los monstruos exactamente n
+ veces, un golpe por monstruo. El primer objetivo del hechizo siempre es el monstruo i
+. Para cada objetivo excepto el primero, el relámpago encadenado elegirá un monstruo aleatorio que no haya sido golpeado por el hechizo y esté adyacente a uno de los monstruos que ya fueron golpeados. Entonces, cada monstruo será golpeado exactamente una vez. El primer monstruo golpeado por el hechizo recibe x
+ de daño, el segundo monstruo recibe (x−1)
+ de daño, el tercero recibe (x−2)
+ de daño, y así sucesivamente.
+
+Vasya quiere mostrar cuán poderoso es, así que quiere matar a todos los monstruos con un solo hechizo de relámpago encadenado. El monstruo se considera muerto si el daño que recibió no es menor que la cantidad de sus puntos de salud. Por otro lado, Vasya quiere mostrar que no le importa mucho, así que quiere elegir el mínimo poder inicial del hechizo x
+ tal que mate a todos los monstruos, sin importar qué monstruo (entre aquellos que pueden ser golpeados) recibe el golpe en cada paso.
+
+Por supuesto, Vasya es un hechicero, pero la cantidad de cálculos necesarios para determinar la configuración óptima del hechizo está muy por encima de sus posibilidades, así que tienes que ayudarlo a encontrar el poder mínimo del hechizo necesario para matar a todos los monstruos.
+
+Ten en cuenta que Vasya elige el objetivo inicial y el poder del hechizo, otras cosas deben considerarse aleatorias y Vasya quiere matar a todos los monstruos incluso en el peor escenario posible.
+
+Input
+La primera línea de la entrada contiene un entero n
+ (1≤n≤3⋅105
+) — el número de monstruos.
+
+La segunda línea de la entrada contiene n
+ enteros a1,a2,…,an
+ (1≤ai≤109
+), donde ai
+ es la cantidad de puntos de salud del i
+-ésimo monstruo.
+
+Output
+Imprime un entero — el poder mínimo del hechizo requerido para matar a todos los monstruos si Vasya elige el primer objetivo de manera óptima, y el orden de los golpes del hechizo puede ser cualquier posible dentro de las reglas dadas.
+
+Examples
+InputCopy
+6
+2 1 5 6 4 3
+OutputCopy
+8
+InputCopy
+5
+4 4 4 4 4
+OutputCopy
+8
+InputCopy
+2
+1 1000000000
+OutputCopy
+1000000000

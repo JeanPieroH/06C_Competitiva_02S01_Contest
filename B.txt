@@ -1,174 +1,116 @@
-George ha ganado la lotería y, siendo un buen tipo, ha decidido repartir la riqueza. Pero ojo, los regalos en dinero pueden ser gravados si superan cierto monto—el impuesto depende de cuánto hayan ganado sus amigos ese año.
+B. ADA eres tu?
+time limit per test1 s.
+memory limit per test256 MB
+Tienes un arreglo a
+ de n
+ enteros.
 
-El monto del impuesto depende de tramos fiscales. Los tramos empiezan desde cero. Cada uno se lleva un porcentaje del ingreso dentro del rango que cubre antes de impuestos. El último tramo aplica a todo ingreso que supere su límite inferior.
+Realizas exactamente k
+ operaciones en él. En una operación, seleccionas cualquier subarreglo contiguo del arreglo a
+ (posiblemente vacío) e insertas la suma de este subarreglo en cualquier lugar del arreglo.
 
-George es un tipo astuto y sabe cuántos tramos fiscales hay, cuánto ha ganado cada amigo y cuánto quiere que cada uno se quede después de impuestos.
+Tu tarea es encontrar la suma máxima posible del arreglo después de k
+ de dichas operaciones.
 
-¿Cuánto debería darle George a cada amigo antes de impuestos?
+Como este número puede ser muy grande, imprime la respuesta módulo 109+7
+.
 
-Entrada
-Una línea con un entero 
-B
-B (
-1
-≤
-B
-≤
-20
-1≤B≤20): el número de tramos fiscales.
+Recordatorio: el residuo de un número x
+ módulo p
+ es el menor y
+ no negativo tal que existe un entero q
+ y x=p⋅q+y
+.
 
-B
-B líneas más, cada una con dos números reales: 
-s
-i
-s 
-i
-​
-  (
+Input
+Cada prueba consta de varios casos de prueba. La primera línea contiene un solo entero t
+ (1≤t≤104
+) — el número de casos de prueba. Luego sigue la descripción de los casos de prueba.
+
+La primera línea de cada caso de prueba contiene dos enteros n
+ y k
+ (1≤n,k≤2⋅105
+) — la longitud del arreglo a
+ y el número de operaciones, respectivamente.
+
+La segunda línea de cada caso de prueba contiene n
+ enteros a1,a2,…,an
+ (−109≤ai≤109
+) — el propio arreglo a
+.
+
+Se garantiza que la suma de los valores de n
+ y k
+ para todos los casos de prueba no excede 2⋅105
+.
+
+Output
+Para cada prueba, imprime un solo entero — la suma máxima del arreglo que se puede obtener después de k
+ operaciones módulo 109+7
+.
+
+Example
+InputCopy
+12
+2 2
+-4 -7
+3 3
+2 2 8
+1 7
+7
+5 1
+4 -2 8 -12 9
+7 4
+8 14 -9 6 0 -1 3
+7 100
+5 3 -8 12 -5 -9 3
+6 1000
+-1000000000 -1000000000 -1000000000 -1000000000 -1000000000 -1000000000
+2 1
+1000000000 8
+5 4
+0 0 0 0 0
+6 10
+48973 757292 58277 -38574 27475 999984
+7 1
+-1000 1000 -1000 1000 -1000 1000 -1000
+10 10050
+408293874 -3498597 7374783 295774930 -48574034 26623784 498754833 -294875830 283045804 85938045
+OutputCopy
+999999996
+96
+896
+17
+351
+716455332
+42
+2
 0
-<
-s
-i
-≤
-10
-6
-0<s 
-i
-​
- ≤10 
-6
- ): el tamaño en libras del 
-i
-t
-h
-i 
-th
-  tramo fiscal, y 
-p
-i
-p 
-i
-​
-  (
+897909241
 0
-≤
-p
-i
-≤
-100
-0≤p 
-i
-​
- ≤100): el porcentaje de impuesto para ese tramo.
+416571966
+Note
+En el primer caso de prueba, es ventajoso tomar un subarreglo vacío del arreglo dos veces e insertar la suma del subarreglo vacío (cero) en cualquier lugar, entonces la suma del arreglo resultante será (−4)+(−7)+0+0=−11
+, módulo 109+7
+ esto es 999999996
+.
 
-Una línea con un número real 
-P
-P (
-0
-≤
-P
-≤
-99.999
-0≤P≤99.999): el porcentaje de impuesto para todo ingreso que supere los otros tramos.
+En el segundo caso de prueba, es ventajoso tomar la suma de todo el arreglo tres veces y colocarla en cualquier lugar del arreglo, entonces una de las posibles secuencias de acciones: [2,2,8
+] →
+ [2,2,8,12
+] →
+ [2,2,8,12,24
+] →
+ [2,2,8,12,24,48
+], la suma del arreglo final es 2+2+8+12+24+48=96
+.
 
-Una línea con un entero 
-F
-F, (
-0
-<
-F
-≤
-20
-0<F≤20): el número de amigos a los que George quiere pagar.
+En el cuarto caso de prueba, es ventajoso tomar un subarreglo del arreglo que consiste en los primeros tres números (es decir, consiste en los números 4,−2
+ y 8
+) e insertar su suma al principio del arreglo, obteniendo así el arreglo [10,4,−2,8,−12,9
+], la suma de este arreglo es 17
+.
 
-F
-F líneas más, cada una con dos números reales 
-e
-j
-e 
-j
-​
-  y 
-m
-j
-m 
-j
-​
-  (
-0
-≤
-e
-j
-≤
-10
-6
-0≤e 
-j
-​
- ≤10 
-6
- , 
-0
-<
-m
-j
-≤
-10
-6
-0<m 
-j
-​
- ≤10 
-6
- ): cuánto ha ganado el 
-j
-t
-h
-j 
-th
-  amigo, y cuánto debería recibir después de impuestos, respectivamente.
-
-Los tramos fiscales estarán en orden creciente. Todos los números reales tienen como máximo 
-6
-6 decimales después del punto.
-
-Salida
-F
-F líneas, una por cada amigo en el mismo orden que en la entrada.
-
-Cada línea debe contener un número real: cuánto dinero debe darle George a su amigo para que, tras pagar impuestos, quede con la cantidad correcta.
-
-La salida debe ser precisa con un error absoluto o relativo de a lo sumo 
-10
-−
-6
-10 
-−6
- .
-
-Ejemplo 1
-Inputcopy	Outputcopy
-1
-1000 0
-20
-3
-0.0 500
-999.5 500
-1000.0 500
-500.000000
-624.875000
-625.000000
-Ejemplo 2
-Inputcopy	Outputcopy
-3
-4750.50 0
-8000 20
-10000 40
-60
-3
-0 10000
-10000 5000
-15000 5000
-11312.375000
-7416.500000
-8624.750000
+En el séptimo caso de prueba, siempre nos convendrá tomar un subarreglo vacío del arreglo. En este caso, la suma del arreglo resultante no diferirá de la suma del original. La respuesta será la suma del arreglo original, tomada módulo — 42
+, porque (−6⋅(109+7)+42=−6000000000)
+.

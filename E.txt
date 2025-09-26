@@ -1,296 +1,153 @@
-Dadas dos matrices de enteros positivos distintos 
-a
-a y 
-b
-b de longitud 
-n
-n, queremos que ambas matrices sean iguales. Dos matrices 
-x
-x y 
-y
-y de longitud 
-k
-k se consideran iguales cuando para todo 
-1
-≤
-i
-≤
-k
-1≤i≤k, 
-x
-i
-=
-y
-i
-x 
-i
-​
- =y 
-i
-​
- .
 
-Ahora, en un movimiento, puedes elegir un índice 
-l
-l y 
-r
-r en 
-a
-a (
-l
-≤
-r
-l≤r) y cambiar de lugar 
-a
-l
-a 
-l
-​
-  y 
-a
-r
-a 
-r
-​
- ; luego eliges un 
-p
-p y 
-q
-q (
-p
-≤
-q
-p≤q) en 
-b
-b tal que 
-r
-−
-l
-=
-q
-−
-p
-r−l=q−p y haces un intercambio entre 
-b
-p
-b 
-p
-​
-  y 
-b
-q
-b 
-q
-​
- .
+E. Buscando banco
+time limit per test1 s.
+memory limit per test256 MB
+Si bien no hay bancos cerca a UTEC, sí hay n
+ bancos cerca del Larcomar. Estos bancos están numerados con enteros de 1
+ a n
+ en el orden en que siguen. También hay m
+ vendedores de galletas cerca de Larcomar. El i
+-ésimo (1≤i≤m
+) vendedor de galletas está ubicado cerca del banco si
+-ésimo.
 
-¿Es posible hacer que ambas matrices sean iguales?
+Juan está parado al principio de Larco. Pasará cerca de todos los bancos comenzando desde el 1
+-ésimo banco y terminando con el n
+-ésimo banco. Juan pasa la distancia entre dos bancos consecutivos en 1
+ minuto. Tiene una mochila con una cantidad infinita de galletas para sus alumnos de ADA. Juan va a comer galletas de su mochila y comprarlas a los vendedores de galletas durante el paseo.
 
-Entrada
-Cada prueba contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba 
-t
-t (
-1
-≤
-t
-≤
-2
-⋅
-10
-4
-1≤t≤2⋅10 
-4
- ). A continuación, se describen los casos de prueba.
+Juan come galletas solo cerca de los bancos de acuerdo con la siguiente regla: comerá la galleta cerca del i
+-ésimo (1≤i≤n
+) banco si y solo si al menos una de las siguientes condiciones se cumple:
 
-La primera línea de cada caso contiene un entero 
-n
-n (
-1
-≤
-n
-≤
-10
-5
-1≤n≤10 
-5
- ) — la longitud de las matrices 
-a
-a y 
-b
-b.
+Hay un vendedor de galletas cerca del i
+-ésimo banco. Entonces Juan comprará una galleta al vendedor de galletas y la comerá inmediatamente.
+Juan aún no ha comido una galleta. Entonces Juan tomará una galleta de su mochila y la comerá inmediatamente.
+Han pasado al menos d
+ minutos desde que Juan comió la galleta anterior. En otras palabras, Juan no ha comido una galleta cerca de los bancos i−1,i−2,…,max(i−d+1,1)
+. Entonces Juan tomará una galleta de su mochila y la comerá inmediatamente.
+Se puede suponer que Juan come galletas instantáneamente. Juan no comerá dos o más galletas cerca del mismo banco.
 
-La segunda línea de cada caso contiene 
-n
-n enteros distintos 
-a
-1
-,
-a
-2
-,
-a
-3
-,
-…
-,
-a
-n
-a 
-1
-​
- ,a 
-2
-​
- ,a 
-3
-​
- ,…,a 
-n
-​
-  (
-1
-≤
-a
-i
-≤
-2
-⋅
-10
-5
-1≤a 
-i
-​
- ≤2⋅10 
-5
- ) — los números en la matriz 
-a
-a.
+Quieres minimizar la cantidad de galletas que Juan comerá durante su paseo. Para hacer esto, pedirás a Angel que, así como va eliminando gente en ADA, elimine exactamente un vendedor de galletas del Paseo antes de que Juan comience su paseo.
 
-La tercera línea de cada caso contiene 
-n
-n enteros distintos 
-b
-1
-,
-b
-2
-,
-b
-3
-,
-…
-,
-b
-n
-b 
-1
-​
- ,b 
-2
-​
- ,b 
-3
-​
- ,…,b 
-n
-​
-  (
-1
-≤
-b
-i
-≤
-2
-⋅
-10
-5
-1≤b 
-i
-​
- ≤2⋅10 
-5
- ) — los números en la matriz 
-b
-b.
+Por favor, determina la cantidad mínima posible de galletas que Juan puede comer después de eliminar exactamente un vendedor de galletas. También determina la cantidad de vendedores de galletas, de manera que si eliminas uno de ellos, Juan comerá la menor cantidad posible de galletas.
 
-Se garantiza que la suma de 
-n
-n en todos los casos no supera 
-10
-5
-10 
-5
- .
+Input
+La primera línea contiene un solo entero t
+ (1≤t≤103
+) — el número de casos de prueba.
 
-Salida
-Para cada caso, imprime "YES" si las matrices 
-a
-a y 
-b
-b pueden hacerse iguales. De lo contrario, imprime "NO". Puedes escribir la respuesta en mayúsculas o minúsculas, o una mezcla de ambas. Por ejemplo, "yEs", "yes", "Yes" y "YES" serán aceptadas como respuestas afirmativas.
+La primera línea de cada caso de prueba contiene tres enteros n
+, m
+ y d
+ (2≤d≤n≤109
+, 2≤m≤min(105,n)
+) — el número de bancos, el número de vendedores de galletas y el valor del parámetro d
+ del enunciado, respectivamente.
 
-Ejemplos
-Inputcopy	Outputcopy
-6
-4
-1 2 3 4
-1 2 3 4
-5
-1 3 4 2 5
-7 1 2 5 4
-4
-1 2 3 4
-4 3 2 1
-3
-1 2 3
-1 3 2
-5
-1 5 7 1000 4
-4 1 7 5 1000
-3
-1 4 2
-1 3 2
-YES
-NO
-YES
-NO
-NO
-NO
-Nota
-En el primer caso de prueba, no necesitas hacer ninguna operación porque las matrices ya son iguales.
+La segunda línea de cada caso de prueba contiene m
+ enteros s1,s2,…,sm
+ (1≤si≤n
+) — las ubicaciones de los vendedores de galletas. Se garantiza que si<si+1
+ para todos 1≤i≤m−1
+.
 
-En el segundo caso, se puede demostrar que no hay forma de hacer que las matrices sean iguales.
+Se garantiza que la suma de m
+ en todos los casos de prueba no excederá 105
+.
 
-En el tercer caso, una forma de igualar las matrices es primero elegir 
-l
-=
-1
-l=1, 
-r
-=
-3
-r=3, 
-p
-=
-1
-p=1, 
-q
-=
-3
-q=3 y luego elegir 
-l
-=
-1
-l=1, 
-r
-=
-2
-r=2, 
-p
-=
-3
-p=3, 
-q
-=
-4
-q=4.
+Output
+Para cada caso de prueba imprime dos enteros — el número mínimo de galletas que Juan puede comer si se elimina exactamente un vendedor de galletas, y el número de vendedores de galletas tal que si se elimina uno de ellos, Juan comerá la menor cantidad posible de galletas.
+
+Example
+InputCopy
+8
+6 2 2
+2 5
+8 3 2
+3 5 8
+10 4 9
+2 8 9 10
+30 5 8
+6 8 15 24 29
+30 5 8
+6 8 12 20 27
+8 8 3
+1 2 3 4 5 6 7 8
+2 2 2
+1 2
+1000000000 3 20000000
+57008429 66778899 837653445
+OutputCopy
+3 1
+4 1
+4 4
+6 4
+5 2
+7 7
+1 1
+51 1
+Note
+En el primer caso de prueba n=6
+, m=2
+, d=2
+ y s=[2,5]
+. Si no se elimina ningún vendedor de galletas, entonces Juan comerá 4
+ galletas durante su caminata (nota que tienes que eliminar exactamente un vendedor de galletas; este caso se explica solo para mostrar cómo decide Juan si comer una galleta):
+
+Juan comerá una galleta cerca del 1
+-er banco ya que aún no ha comido una galleta.
+Juan comerá una galleta cerca del 2
+-do banco ya que hay un vendedor de galletas cerca de este banco.
+Juan no comerá una galleta cerca del 3
+-er banco ya que solo ha pasado 1<d
+ minuto desde que comió una galleta.
+Juan comerá una galleta cerca del 4
+-to banco ya que han pasado 2≥d
+ minutos desde que comió una galleta.
+Juan comerá una galleta cerca del 5
+-to banco ya que hay un vendedor de galletas cerca de este banco.
+Juan no comerá una galleta cerca del 6
+-to banco ya que solo ha pasado 1<d
+ minuto desde que comió una galleta.
+Si se elimina el 1
+-er vendedor de galletas, Juan comerá 3
+ galletas (cerca de los bancos 1
+, 3
+ y 5
+). Si se elimina el 2
+-do vendedor de galletas, Juan comerá 4
+ galletas (cerca de los bancos 1
+, 2
+, 4
+ y 6
+).
+
+Así, el número mínimo de galletas que Juan comerá es 3
+; hay solo un vendedor de galletas tal que al eliminarlo se minimiza la cantidad de galletas que Juan comerá.
+
+En el segundo caso de prueba:
+
+la eliminación del 1
+-er o el 2
+-do vendedor de galletas resulta en que Juan coma 5
+ galletas cerca de los bancos 1
+, 3
+, 5
+, 7
+, 8
+;
+la eliminación del 3
+-er vendedor de galletas resulta en que Juan coma 4
+ galletas cerca de los bancos 1
+, 3
+, 5
+, 7
+.
+Nota que el segundo entero que debes imprimir es el número de (es decir, cantidad de) vendedores de galletas, no el índice de un vendedor de galletas a eliminar. Por lo tanto, la respuesta al segundo caso de prueba es 4 1 porque hay solo un vendedor de galletas tal que al eliminarlo Juan comerá cuatro galletas, que es lo mínimo posible.
+
+En el tercer caso de prueba, Juan comerá 4
+ galletas sin importar qué vendedor de galletas se elimine.
+
+Nota que a Juan no le interesa minimizar la cantidad de galletas que comerá, así que comerá galletas siempre que sea posible según la regla del enunciado.
+

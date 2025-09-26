@@ -1,0 +1,71 @@
+D. Oppenheimer
+time limit per test1 s.
+memory limit per test256 MB
+Has descubierto n
+ partículas misteriosas en una línea con cargas enteras de c1,…,cn
+. Tienes un dispositivo que te permite realizar la siguiente operación:
+
+Elige una partícula y quítala de la línea. Las partículas restantes se desplazarán para llenar el espacio que se crea. Si había partículas con cargas x
+ e y
+ directamente a la izquierda y a la derecha de la partícula eliminada, se combinan en una sola partícula de carga x+y
+.
+Por ejemplo, si la línea de partículas tuviera cargas de [−3,1,4,−1,5,−9]
+, al realizar la operación en la 4
+-ta partícula, la línea se transformaría en [−3,1,9,−9]
+.
+
+
+Si luego usamos el dispositivo en la 1
+-ra partícula en esta nueva línea, la línea se convertirá en [1,9,−9]
+.
+
+Realizarás operaciones hasta que quede solo una partícula. ¿Cuál es la carga máxima de esta partícula restante que puedes obtener?
+
+Input
+Cada prueba contiene varios casos de prueba. La primera línea contiene el número de casos de prueba t
+ (1≤t≤104
+). La descripción de los casos de prueba sigue.
+
+La primera línea de cada caso de prueba contiene un solo entero n
+ (1≤n≤2⋅105
+).
+
+La segunda línea de cada caso de prueba contiene n
+ enteros c1,…,cn
+ (−109≤ci≤109
+).
+
+Se garantiza que la suma de n
+ en todos los casos de prueba no excederá 2⋅105
+.
+
+Output
+Para cada caso de prueba, imprime un solo entero, la carga máxima de la partícula restante.
+
+Example
+InputCopy
+3
+6
+-3 1 4 -1 5 -9
+5
+998244353 998244353 998244353 998244353 998244353
+1
+-2718
+OutputCopy
+9
+2994733059
+-2718
+Note
+En el primer caso de prueba, la mejor estrategia es usar el dispositivo en la 4
+-ta partícula, luego en la 1
+-ra partícula (como se describe en el enunciado), y finalmente usar el dispositivo en la nueva 3
+-ra partícula seguido de la 1
+-ra partícula.
+
+En el segundo caso de prueba, la mejor estrategia es usar el dispositivo en la 4
+-ta partícula para transformar la línea en [998244353,998244353,1996488706]
+, luego en la 2
+-da partícula para transformar la línea en [2994733059]
+. Ten en cuenta el desbordamiento de enteros.
+
+En el tercer caso de prueba, solo hay una partícula, por lo que no se pueden realizar operaciones.

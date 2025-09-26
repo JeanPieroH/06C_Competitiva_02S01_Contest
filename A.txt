@@ -1,0 +1,106 @@
+A. Un Lefuto
+time limit per test2.5 s.
+memory limit per test256 MB
+Estás jugando un Left 4 Dead en tu computadora. El nivel actual de este juego puede modelarse como una línea recta. Tu personaje está en el punto 0
+ de esta línea. Hay n
+ zombies intentando matar a tu personaje; el i
+-ésimo monstruo tiene una salud igual a ai
+ y está inicialmente en el punto xi
+.
+
+Cada segundo, sucede lo siguiente:
+
+primero, disparas hasta k
+ balas a los zombies. Cada bala apunta a exactamente un monstruo y disminuye su salud en 1
+. Para cada bala, eliges su objetivo arbitrariamente (por ejemplo, puedes disparar todas las balas a un solo monstruo, disparar todas las balas a diferentes zombies, o elegir cualquier otra combinación). Cualquier monstruo puede ser apuntado por una bala, independientemente de su posición y de otros factores;
+luego, todos los zombies vivos con salud 0
+ o menos mueren;
+luego, todos los zombies vivos se mueven 1
+ punto más cerca de ti (los zombies a la izquierda de ti aumentan sus coordenadas en 1
+, los zombies a la derecha de ti disminuyen sus coordenadas en 1
+). Si algún monstruo alcanza a tu personaje (se mueve al punto 0
+), pierdes.
+¿Puedes sobrevivir y matar a los n
+ zombies sin dejar que ninguno de ellos alcance a tu personaje?
+
+Input
+La primera línea de la entrada contiene un entero t
+ (1≤t≤3⋅104
+) — el número de casos de prueba.
+
+Cada caso de prueba consta de tres líneas:
+
+la primera línea contiene dos enteros n
+ y k
+ (1≤n≤3⋅105
+; 1≤k≤2⋅109
+);
+la segunda línea contiene n
+ enteros a1,a2,…,an
+ (1≤ai≤109
+);
+la tercera línea contiene n
+ enteros x1,x2,…,xn
+ (−n≤x1<x2<x3<⋯<xn≤n
+; xi≠0
+).
+Restricción adicional sobre la entrada: la suma de n
+ en todos los casos de prueba no excede 3⋅105
+.
+
+Output
+Para cada caso de prueba, imprime YES si puedes matar a todos los n
+ zombies antes de que alcancen a tu personaje, o NO de lo contrario.
+
+Puedes imprimir cada letra de la respuesta en cualquier caso (mayúsculas o minúsculas). Por ejemplo, las cadenas yEs, yes, Yes y YES serán reconocidas como respuestas positivas.
+
+Example
+InputCopy
+5
+3 2
+1 2 3
+-1 2 3
+2 1
+1 1
+-1 1
+4 10
+3 4 2 5
+-3 -2 1 3
+5 3
+2 1 3 2 5
+-3 -2 3 4 5
+2 1
+1 2
+1 2
+OutputCopy
+YES
+NO
+YES
+YES
+NO
+Note
+En el primer ejemplo, puedes actuar de la siguiente manera:
+
+durante el 1
+-er segundo, disparas 1
+ bala al 1
+-er monstruo y 1
+ bala al 3
+-er monstruo. Luego el 1
+-er monstruo muere, el 2
+-do y el 3
+-er monstruo se mueven más cerca;
+durante el 2
+-do segundo, disparas 2
+ balas al 2
+-do monstruo. Luego el 2
+-do monstruo muere, el 3
+-er monstruo se mueve más cerca;
+durante el 3
+-er segundo, disparas 2
+ balas al 3
+-er monstruo. Luego el 3
+-er monstruo muere.
+En el segundo ejemplo, solo puedes disparar 1
+ bala, por lo que solo puedes matar a uno de los dos zombies durante el 1
+-er segundo. Luego, el monstruo restante se mueve más cerca y mata a tu personaje.
