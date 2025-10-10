@@ -1,50 +1,28 @@
-C. Graphicando
-time limit per test2 s.
-memory limit per test256 MB
-Lee está decorando su casa de manera elegante para una fiesta, usando algunos polígonos regulares convexos...
+C. Cyber
+time limit per test0.25 s.
+memory limit per test1024 MB
+Alumnos deconstruyendo Algoritmos (ADA) es una agencia privada de espionaje digital que está desarrollando un nuevo dispositivo para interceptar información usando ondas electromagnéticas, lo que permite espiar incluso sin contacto físico con el objetivo.
 
-Lee piensa que un polígono regular de n
- lados es hermoso si y solo si puede rotarlo de manera que al menos uno de sus lados sea paralelo al eje OX
- y al menos uno de sus lados sea paralelo al eje OY
- al mismo tiempo.
+El dispositivo intenta recolectar información un byte a la vez, esto es, una secuencia de 8 bits donde cada uno de ellos, naturalmente, puede tener un valor de 0 o 1. En ciertas situaciones, debido a la interferencia de otros dispositivos, la lectura no se puede realizar con éxito. En este caso, el dispositivo devuelve el valor 9 para el bit correspondiente, informando que la lectura no se pudo realizar.
 
-Recuerda que un polígono regular de n
- lados es un polígono convexo con n
- vértices tales que todos los lados y ángulos son iguales.
-
-Ahora está de compras: el mercado tiene t
- polígonos regulares. Para cada uno de ellos, imprime YES si es hermoso y NO en caso contrario.
+Para automatizar el reconocimiento de la información que lee el dispositivo, se solicitó un programa que, basándose en la información leída, informe si todos los bits se leyeron con éxito o no. Tu tarea es escribir este programa.
 
 Input
-La primera línea contiene un solo entero t
- (1≤t≤104
-) — el número de polígonos en el mercado.
-
-Cada una de las siguientes t
- líneas contiene un solo entero ni
- (3≤ni≤109
-): esto significa que el i
--ésimo polígono es un polígono regular de ni
- lados.
+La entrada consiste en una sola línea, que contiene 8 enteros N1,N2,N3,N4,N5,N6,N7
+ y N8
+, que indican los valores leídos por el dispositivo (Ni
+ es 0, 1 o 9 para 1≤i≤8
+).
 
 Output
-Para cada polígono, imprime YES si es hermoso o NO en caso contrario (sin distinguir mayúsculas y minúsculas).
+Imprime una sola línea que contenga la letra mayúscula 'S' si todos los bits se leen con éxito; de lo contrario, imprime una sola línea que contenga la letra mayúscula 'F', que corresponde a un fallo.
 
-Example
+Examples
 InputCopy
-4
-3
-4
-12
-1000000000
+0 0 1 1 0 1 0 1
 OutputCopy
-NO
-YES
-YES
-YES
-Note
-En el ejemplo, hay 4
- polígonos en el mercado. Es fácil ver que un triángulo equilátero (un polígono regular de 3
- lados) no es hermoso, un cuadrado (un polígono regular de 4
- lados) es hermoso y un polígono regular de 12
- lados (se muestra a continuación) también es hermoso.
+S
+InputCopy
+0 0 1 9 0 1 0 1
+OutputCopy
+F

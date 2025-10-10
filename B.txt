@@ -1,116 +1,55 @@
-B. ADA eres tu?
-time limit per test1 s.
-memory limit per test256 MB
-Tienes un arreglo a
- de n
- enteros.
+B. Robin
+time limit per test1.5 s.
+memory limit per test1024 MB
+Un número enorme de globos está flotando en el auditorio después de la Ceremonia de Premiación de la semana universitaria. Juancito está enojado, porque el año pasado los estudiantes no recogieron los globos que utilizaron. Afortunadamente, este año Juancito vino preparado con su arco y flechas para reventar los globos.
 
-Realizas exactamente k
- operaciones en él. En una operación, seleccionas cualquier subarreglo contiguo del arreglo a
- (posiblemente vacío) e insertas la suma de este subarreglo en cualquier lugar del arreglo.
+Además, por suerte, debido al flujo del aire acondicionado, todos los globos se encuentran en el mismo plano vertical (es decir, un plano paralelo a una pared), aunque a distintas alturas y posiciones.
 
-Tu tarea es encontrar la suma máxima posible del arreglo después de k
- de dichas operaciones.
-
-Como este número puede ser muy grande, imprime la respuesta módulo 109+7
+Juancito disparará desde el lado izquierdo del auditorio a una altura elegida, en dirección al lado derecho del auditorio. Cada flecha se mueve de izquierda a derecha, a la altura a la que fue disparada, en el mismo plano vertical que los globos. Cuando una flecha toca un globo, el globo explota y la flecha continúa su movimiento hacia la derecha, a una altura disminuida en 1. En otras palabras, si la flecha estaba a una altura H
+, después de reventar un globo continúa a una altura H−1
 .
 
-Recordatorio: el residuo de un número x
- módulo p
- es el menor y
- no negativo tal que existe un entero q
- y x=p⋅q+y
-.
+Juancito quiere reventar todos los globos disparando la menor cantidad de flechas posible. ¿Puedes ayudarlo?
 
 Input
-Cada prueba consta de varios casos de prueba. La primera línea contiene un solo entero t
- (1≤t≤104
-) — el número de casos de prueba. Luego sigue la descripción de los casos de prueba.
-
-La primera línea de cada caso de prueba contiene dos enteros n
- y k
- (1≤n,k≤2⋅105
-) — la longitud del arreglo a
- y el número de operaciones, respectivamente.
-
-La segunda línea de cada caso de prueba contiene n
- enteros a1,a2,…,an
- (−109≤ai≤109
-) — el propio arreglo a
-.
-
-Se garantiza que la suma de los valores de n
- y k
- para todos los casos de prueba no excede 2⋅105
-.
+La primera línea de entrada contiene un entero N
+, el número de globos (1≤N≤5×105
+). Dado que todos los globos están en el mismo plano vertical, definamos que la altura de un globo está dada en relación al eje y
+ y la posición de un globo está dada en relación al eje x
+. Los globos están numerados del 1 al N
+. Los números de los globos indican sus posiciones, del más a la izquierda (globo número 1) al más a la derecha (globo número N
+), independientemente de sus alturas. La posición del globo número i
+ es diferente de la posición del globo número i+1
+, para todo i
+. La segunda línea contiene N
+ enteros Hi
+, donde Hi
+ indica la altura del globo número i
+ (1≤Hi≤106
+ para 1≤i≤N
+). Ten en cuenta que varios globos pueden estar a la misma altura, pero no hay pares (posición, altura) repetidos.
 
 Output
-Para cada prueba, imprime un solo entero — la suma máxima del arreglo que se puede obtener después de k
- operaciones módulo 109+7
-.
+Tu programa debe imprimir una sola línea, conteniendo un único entero, el número mínimo de flechas que Juancito necesita disparar para reventar todos los globos.
 
-Example
+Examples
 InputCopy
-12
-2 2
--4 -7
-3 3
-2 2 8
-1 7
-7
-5 1
-4 -2 8 -12 9
-7 4
-8 14 -9 6 0 -1 3
-7 100
-5 3 -8 12 -5 -9 3
-6 1000
--1000000000 -1000000000 -1000000000 -1000000000 -1000000000 -1000000000
-2 1
-1000000000 8
-5 4
-0 0 0 0 0
-6 10
-48973 757292 58277 -38574 27475 999984
-7 1
--1000 1000 -1000 1000 -1000 1000 -1000
-10 10050
-408293874 -3498597 7374783 295774930 -48574034 26623784 498754833 -294875830 283045804 85938045
+5
+3 2 1 5 4
 OutputCopy
-999999996
-96
-896
-17
-351
-716455332
-42
 2
-0
-897909241
-0
-416571966
-Note
-En el primer caso de prueba, es ventajoso tomar un subarreglo vacío del arreglo dos veces e insertar la suma del subarreglo vacío (cero) en cualquier lugar, entonces la suma del arreglo resultante será (−4)+(−7)+0+0=−11
-, módulo 109+7
- esto es 999999996
-.
-
-En el segundo caso de prueba, es ventajoso tomar la suma de todo el arreglo tres veces y colocarla en cualquier lugar del arreglo, entonces una de las posibles secuencias de acciones: [2,2,8
-] →
- [2,2,8,12
-] →
- [2,2,8,12,24
-] →
- [2,2,8,12,24,48
-], la suma del arreglo final es 2+2+8+12+24+48=96
-.
-
-En el cuarto caso de prueba, es ventajoso tomar un subarreglo del arreglo que consiste en los primeros tres números (es decir, consiste en los números 4,−2
- y 8
-) e insertar su suma al principio del arreglo, obteniendo así el arreglo [10,4,−2,8,−12,9
-], la suma de este arreglo es 17
-.
-
-En el séptimo caso de prueba, siempre nos convendrá tomar un subarreglo vacío del arreglo. En este caso, la suma del arreglo resultante no diferirá de la suma del original. La respuesta será la suma del arreglo original, tomada módulo — 42
-, porque (−6⋅(109+7)+42=−6000000000)
-.
+InputCopy
+4
+1 2 3 4
+OutputCopy
+4
+InputCopy
+6
+5 3 2 4 6 1
+OutputCopy
+3
+InputCopy
+5
+1 1 1 1 1
+OutputCopy
+5

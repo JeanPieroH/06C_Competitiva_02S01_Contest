@@ -1,71 +1,66 @@
-D. Oppenheimer
+D. Parcial
 time limit per test1 s.
 memory limit per test256 MB
-Has descubierto n
- partículas misteriosas en una línea con cargas enteras de c1,…,cn
-. Tienes un dispositivo que te permite realizar la siguiente operación:
+Se te da un conjunto de problemas (*problemset*) que consiste en n
+ problemas. La dificultad del i
+-ésimo problema es ai
+. Se garantiza que todas las dificultades son distintas y se dan en orden creciente.
 
-Elige una partícula y quítala de la línea. Las partículas restantes se desplazarán para llenar el espacio que se crea. Si había partículas con cargas x
- e y
- directamente a la izquierda y a la derecha de la partícula eliminada, se combinan en una sola partícula de carga x+y
-.
-Por ejemplo, si la línea de partículas tuviera cargas de [−3,1,4,−1,5,−9]
-, al realizar la operación en la 4
--ta partícula, la línea se transformaría en [−3,1,9,−9]
-.
+Tienes que armar un contest que consista en algunos problemas del conjunto dado. En otras palabras, el contest que debes armar debe ser un subconjunto de problemas (no necesariamente consecutivos) del conjunto de problemas dado. Solo hay una condición que debe cumplirse: para cada problema, excepto el más difícil (el problema con la máxima dificultad), debe haber un problema con una dificultad mayor que la de este, pero no más del doble de su dificultad. En otras palabras, si ai1,ai2,…,aip
+ son las dificultades de los problemas seleccionados en orden creciente, entonces para cada j
+ desde 1
+ hasta p−1
+ se debe cumplir que aij+1≤aij⋅2
+. Esto significa que un contest que consta de un solo problema siempre es válido.
 
-
-Si luego usamos el dispositivo en la 1
--ra partícula en esta nueva línea, la línea se convertirá en [1,9,−9]
-.
-
-Realizarás operaciones hasta que quede solo una partícula. ¿Cuál es la carga máxima de esta partícula restante que puedes obtener?
+Entre todos los contests que satisfacen la condición anterior, tienes que armar uno con el máximo número de problemas. Tu tarea es encontrar este número de problemas.
 
 Input
-Cada prueba contiene varios casos de prueba. La primera línea contiene el número de casos de prueba t
- (1≤t≤104
-). La descripción de los casos de prueba sigue.
-
-La primera línea de cada caso de prueba contiene un solo entero n
+La primera línea de la entrada contiene un entero n
  (1≤n≤2⋅105
-).
+) — el número de problemas en el conjunto.
 
-La segunda línea de cada caso de prueba contiene n
- enteros c1,…,cn
- (−109≤ci≤109
-).
-
-Se garantiza que la suma de n
- en todos los casos de prueba no excederá 2⋅105
-.
+La segunda línea de la entrada contiene n
+ enteros a1,a2,…,an
+ (1≤ai≤109
+) — las dificultades de los problemas. Se garantiza que las dificultades de los problemas son distintas y se dan en orden creciente.
 
 Output
-Para cada caso de prueba, imprime un solo entero, la carga máxima de la partícula restante.
+Imprime un solo entero — el número máximo de problemas en un contest que satisfaga la condición del enunciado.
 
-Example
+Examples
 InputCopy
-3
-6
--3 1 4 -1 5 -9
-5
-998244353 998244353 998244353 998244353 998244353
-1
--2718
+10
+1 2 5 6 7 10 21 23 24 49
 OutputCopy
-9
-2994733059
--2718
+4
+InputCopy
+5
+2 10 50 110 250
+OutputCopy
+1
+InputCopy
+6
+4 7 12 100 150 199
+OutputCopy
+3
 Note
-En el primer caso de prueba, la mejor estrategia es usar el dispositivo en la 4
--ta partícula, luego en la 1
--ra partícula (como se describe en el enunciado), y finalmente usar el dispositivo en la nueva 3
--ra partícula seguido de la 1
--ra partícula.
+Descripción del primer ejemplo: hay 10
+ contests válidos de 1
+ problema, 10
+ contests válidos de 2
+ problemas ([1,2],[5,6],[5,7],[5,10],[6,7],[6,10],[7,10],[21,23],[21,24],[23,24]
+), 5
+ contests válidos de 3
+ problemas ([5,6,7],[5,6,10],[5,7,10],[6,7,10],[21,23,24]
+) y un único contests válido de 4
+ problemas ([5,6,7,10]
+).
 
-En el segundo caso de prueba, la mejor estrategia es usar el dispositivo en la 4
--ta partícula para transformar la línea en [998244353,998244353,1996488706]
-, luego en la 2
--da partícula para transformar la línea en [2994733059]
-. Ten en cuenta el desbordamiento de enteros.
+En el segundo ejemplo, todos los contests válidos constan de 1
+ problema.
 
-En el tercer caso de prueba, solo hay una partícula, por lo que no se pueden realizar operaciones.
+En el tercer ejemplo hay dos contests que constan de 3
+ problemas: [4,7,12]
+ y [100,150,199]
+.

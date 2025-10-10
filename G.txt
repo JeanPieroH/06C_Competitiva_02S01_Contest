@@ -1,58 +1,53 @@
-G. Vasya
-time limit per test2 s.
-memory limit per test256 MB
-Vasya es un hechicero que lucha contra monstruos. Nuevamente. Hay n
- monstruos parados en fila, la cantidad de puntos de salud del i
--ésimo monstruo es ai
-.
+G. casi palíndromo
+time limit per test1 s.
+memory limit per test1024 MB
+La distancia de edición entre dos cadenas de texto u
+ y v
+ es el número mínimo de operaciones de edición que transforman u
+ en v
+. Hay tres operaciones de edición que se pueden aplicar a una cadena: insertar un carácter, eliminar un carácter y sustituir un carácter por otro diferente.
 
-Vasya es un hechicero muy poderoso que conoce muchos hechizos sobrealimentados. En esta pelea, decidió usar un hechizo de relámpago encadenado para derrotar a todos los monstruos. Veamos cómo funciona este hechizo.
+Por ejemplo, podemos transformar hello en world con cuatro sustituciones, por lo que la distancia de edición es como máximo 4
+. Puedes transformar wally en walter con dos sustituciones y una inserción, por lo que la distancia de edición es como máximo 3
+. Calcular la distancia de edición entre dos cadenas es un problema bien conocido con muchas aplicaciones.
 
-Primero, Vasya elige un índice i
- de algún monstruo (1≤i≤n
-) y el poder inicial del hechizo x
-. Luego, el hechizo golpea a los monstruos exactamente n
- veces, un golpe por monstruo. El primer objetivo del hechizo siempre es el monstruo i
-. Para cada objetivo excepto el primero, el relámpago encadenado elegirá un monstruo aleatorio que no haya sido golpeado por el hechizo y esté adyacente a uno de los monstruos que ya fueron golpeados. Entonces, cada monstruo será golpeado exactamente una vez. El primer monstruo golpeado por el hechizo recibe x
- de daño, el segundo monstruo recibe (x−1)
- de daño, el tercero recibe (x−2)
- de daño, y así sucesivamente.
+La tarea en cuestión es calcular la distancia de edición de una cadena a uno de los palíndromos más cercanos. Un palíndromo es una cadena que se lee igual al derecho y al revés, por ejemplo, madam.
 
-Vasya quiere mostrar cuán poderoso es, así que quiere matar a todos los monstruos con un solo hechizo de relámpago encadenado. El monstruo se considera muerto si el daño que recibió no es menor que la cantidad de sus puntos de salud. Por otro lado, Vasya quiere mostrar que no le importa mucho, así que quiere elegir el mínimo poder inicial del hechizo x
- tal que mate a todos los monstruos, sin importar qué monstruo (entre aquellos que pueden ser golpeados) recibe el golpe en cada paso.
+La distancia de edición de hello al palíndromo más cercano es solo 2
+: Podemos transformar hello en ollo, o hllh, o elle con dos operaciones de edición.
 
-Por supuesto, Vasya es un hechicero, pero la cantidad de cálculos necesarios para determinar la configuración óptima del hechizo está muy por encima de sus posibilidades, así que tienes que ayudarlo a encontrar el poder mínimo del hechizo necesario para matar a todos los monstruos.
-
-Ten en cuenta que Vasya elige el objetivo inicial y el poder del hechizo, otras cosas deben considerarse aleatorias y Vasya quiere matar a todos los monstruos incluso en el peor escenario posible.
+Escribe un programa que pueda encontrar la distancia de una palabra a un palíndromo más cercano.
 
 Input
-La primera línea de la entrada contiene un entero n
- (1≤n≤3⋅105
-) — el número de monstruos.
+Cada entrada contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba t
+. A continuación, sigue la descripción de los casos de prueba.
 
-La segunda línea de la entrada contiene n
- enteros a1,a2,…,an
- (1≤ai≤109
-), donde ai
- es la cantidad de puntos de salud del i
--ésimo monstruo.
+La única línea de cada caso de prueba contiene una palabra w
+ que consta únicamente de letras minúsculas.
 
+1≤t≤200
+La palabra w
+ tiene una longitud de al menos uno.
+Se garantiza que la suma de las longitudes de las palabras w
+ para todos los casos de prueba no excede 3000
+.
 Output
-Imprime un entero — el poder mínimo del hechizo requerido para matar a todos los monstruos si Vasya elige el primer objetivo de manera óptima, y el orden de los golpes del hechizo puede ser cualquier posible dentro de las reglas dadas.
+Para cada caso de prueba, imprime la distancia de edición de la palabra de entrada w
+ a su palíndromo más cercano.
 
-Examples
+Example
 InputCopy
 6
-2 1 5 6 4 3
+aaaaba
+hello
+palindrome
+abba
+x
+bababac
 OutputCopy
-8
-InputCopy
-5
-4 4 4 4 4
-OutputCopy
-8
-InputCopy
+1
 2
-1 1000000000
-OutputCopy
-1000000000
+5
+0
+0
+1

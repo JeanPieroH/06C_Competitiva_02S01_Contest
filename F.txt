@@ -1,91 +1,38 @@
-F. Gridieando en ADA
+F. Jálalo o Duplícalo
 time limit per test1 s.
-memory limit per test256 MB
-Vasya tiene dos pasatiempos: añadir permutaciones†
- a arreglos y encontrar el elemento que ocurre con más frecuencia. Recientemente, encontró un arreglo a
- y decidió averiguar el número máximo de elementos iguales al mismo número en el arreglo a
- que puede obtener después de agregar alguna permutación al arreglo a
-.
+memory limit per test1024 MB
+Eres el anfitrión de un programa de experimentos en la calle llamado JODC (Jálalo o Duplícalo). En el programa, te acercas a las personas una por una, les entregas el parcial de SO y les ofreces algo de dinero. Cada persona puede:
 
-De manera más formal, Vasya debe elegir exactamente una permutación p1,p2,p3,…,pn
- de longitud n
-, y luego cambiar los elementos del arreglo a
- según la regla ai:=ai+pi
-. Después de eso, Vasya cuenta cuántas veces ocurre cada número en el arreglo a
- y toma el máximo de estos valores. Necesitas determinar el valor máximo que puede obtener.
+Tomarlo: Aceptar el dinero, reprobar el examen y terminar el juego.
+Duplícalo: Rechazar el dinero y pedirte que dupliques la cantidad para ofrecerla a la siguiente persona.
+El juego comienza con x
+ dólares. Vas por la calle y te encuentras con una persona al azar. Te gustaría predecir de antemano lo que cada una de ellas dirá — ya sea "take it" o "double it".
 
-†
-Una permutación de longitud n
- es un arreglo que consiste en n
- enteros distintos de 1
- a n
- en orden arbitrario. Por ejemplo, [2,3,1,5,4]
- es una permutación, pero [1,2,2]
- no es una permutación (el 2
- aparece dos veces en el arreglo), y [1,3,4]
- tampoco es una permutación (n=3
- pero hay un 4
- en el arreglo).
+Tienes un presupuesto limitado de d
+ dólares en tu bolsillo. Si, en algún momento, la decisión de una persona pudiera resultar en una cantidad estrictamente mayor que tus fondos disponibles d
+, debes forzar a la persona a decir "take it", sin importar lo que quisiera decir. La gente de CS es muy empática, así que siempre que tienen la opción, dirán "double it" y pasarán la oportunidad a otros (<3) — a menos que se les obligue a tomar el dinero.
+
+Tu tarea es simular el juego y determinar si el próximo estudiante que encuentres tomará el dinero o lo duplicará para dárselo a la siguiente persona.
 
 Input
-Cada prueba consiste en varios casos de prueba. La primera línea contiene un solo entero t
- (1≤t≤2⋅104
-) — el número de casos de prueba. Luego sigue la descripción de los casos de prueba.
-
-La primera línea de cada caso de prueba contiene un solo entero n
- (1≤n≤2⋅105
-) — la longitud del arreglo a
+La entrada contiene dos enteros x
+ y d
 .
 
-La segunda línea de cada caso de prueba contiene n
- enteros a1,a2,…,an
- (1≤ai≤109
-) — los elementos del arreglo a
-.
-
-Se garantiza que la suma de n
- en todos los casos de prueba no excede 2⋅105
-.
-
+1≤x≤d≤109
 Output
-Para cada caso de prueba, imprime un solo número — el número máximo de elementos iguales al mismo número después de la operación de agregar una permutación.
+Imprime una cadena de texto, ya sea "take it" o "double it".
 
-Example
+Examples
 InputCopy
-7
-2
-1 2
-4
-7 1 4 1
-3
-103 102 104
-5
-1 101 1 100 1
-5
-1 10 100 1000 1
-2
-3 1
-3
-1000000000 999999997 999999999
+123 246
 OutputCopy
-2
-2
-3
-2
-1
-1
-2
-Note
-En el primer caso de prueba, es óptimo elegir p=[2,1]
-. Entonces, después de aplicar la operación, el arreglo a
- será [3,3]
-, en el cual el número 3
- ocurre dos veces, por lo que la respuesta es 2
-.
-
-En el segundo caso de prueba, una de las opciones óptimas es p=[2,3,1,4]
-. Después de aplicar la operación, el arreglo a
- será [9,4,5,5]
-. Dado que el número 5
- ocurre dos veces, la respuesta es 2
-.
+double it
+InputCopy
+345 678
+OutputCopy
+take it
+InputCopy
+789 101112
+OutputCopy
+double it
