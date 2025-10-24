@@ -1,55 +1,58 @@
-B. Robin
-time limit per test1.5 s.
-memory limit per test1024 MB
-Un número enorme de globos está flotando en el auditorio después de la Ceremonia de Premiación de la semana universitaria. Juancito está enojado, porque el año pasado los estudiantes no recogieron los globos que utilizaron. Afortunadamente, este año Juancito vino preparado con su arco y flechas para reventar los globos.
+Polycarp quiere armar su propio teclado. Los diseños con múltiples filas son demasiado complicados para él, su teclado consistirá en una sola fila, donde todas las letras minúsculas del alfabeto latino estarán dispuestas en algún orden.
 
-Además, por suerte, debido al flujo del aire acondicionado, todos los globos se encuentran en el mismo plano vertical (es decir, un plano paralelo a una pared), aunque a distintas alturas y posiciones.
+Polycarp utiliza la misma contraseña en todos los sitios web donde está registrado (es malo, pero a él no le importa). Quiere armar un teclado que le permita escribir esta contraseña muy fácilmente. No le gusta mover los dedos mientras escribe la contraseña, por lo que, para cada par de caracteres adyacentes en la contraseña, deben ser adyacentes en el teclado. Por ejemplo, si la contraseña es abacaba, entonces el diseño cabdefghi... es perfecto, ya que los caracteres a y c son adyacentes en el teclado, y a y b son adyacentes en el teclado. Se garantiza que no hay dos caracteres iguales adyacentes en la contraseña, por lo que, por ejemplo, la contraseña no puede ser password (dos caracteres s son adyacentes).
 
-Juancito disparará desde el lado izquierdo del auditorio a una altura elegida, en dirección al lado derecho del auditorio. Cada flecha se mueve de izquierda a derecha, a la altura a la que fue disparada, en el mismo plano vertical que los globos. Cuando una flecha toca un globo, el globo explota y la flecha continúa su movimiento hacia la derecha, a una altura disminuida en 1. En otras palabras, si la flecha estaba a una altura H
-, después de reventar un globo continúa a una altura H−1
-.
+¿Puedes ayudar a Polycarp a elegir el diseño perfecto del teclado, si es posible?
 
-Juancito quiere reventar todos los globos disparando la menor cantidad de flechas posible. ¿Puedes ayudarlo?
+Entrada
+La primera línea contiene un entero 
+T
+T (
+1
+≤
+T
+≤
+1000
+1≤T≤1000) — el número de casos de prueba.
 
-Input
-La primera línea de entrada contiene un entero N
-, el número de globos (1≤N≤5×105
-). Dado que todos los globos están en el mismo plano vertical, definamos que la altura de un globo está dada en relación al eje y
- y la posición de un globo está dada en relación al eje x
-. Los globos están numerados del 1 al N
-. Los números de los globos indican sus posiciones, del más a la izquierda (globo número 1) al más a la derecha (globo número N
-), independientemente de sus alturas. La posición del globo número i
- es diferente de la posición del globo número i+1
-, para todo i
-. La segunda línea contiene N
- enteros Hi
-, donde Hi
- indica la altura del globo número i
- (1≤Hi≤106
- para 1≤i≤N
-). Ten en cuenta que varios globos pueden estar a la misma altura, pero no hay pares (posición, altura) repetidos.
+Luego siguen 
+T
+T líneas, cada una conteniendo una cadena 
+s
+s (
+1
+≤
+∣
+s
+∣
+≤
+200
+1≤∣s∣≤200) que representa el caso de prueba. 
+s
+s consiste solo de letras minúsculas del alfabeto latino. No hay dos caracteres iguales adyacentes en 
+s
+s.
 
-Output
-Tu programa debe imprimir una sola línea, conteniendo un único entero, el número mínimo de flechas que Juancito necesita disparar para reventar todos los globos.
+Salida
+Para cada caso de prueba, haz lo siguiente:
 
-Examples
-InputCopy
+si es imposible armar un teclado perfecto, imprime NO (en mayúsculas, esto es importante en este problema);
+de lo contrario, imprime YES (en mayúsculas), y luego una cadena que consiste en 
+26
+26 letras minúsculas del alfabeto latino — el diseño perfecto. Cada letra latina debe aparecer en esta cadena exactamente una vez. Si hay múltiples respuestas, imprime cualquiera de ellas.
+Ejemplos
+Inputcopy	Outputcopy
 5
-3 2 1 5 4
-OutputCopy
-2
-InputCopy
-4
-1 2 3 4
-OutputCopy
-4
-InputCopy
-6
-5 3 2 4 6 1
-OutputCopy
-3
-InputCopy
-5
-1 1 1 1 1
-OutputCopy
-5
+ababa
+codedoca
+abcda
+zxzytyz
+abcdefghijklmnopqrstuvwxyza
+YES
+bacdefghijklmnopqrstuvwxyz
+YES
+edocabfghijklmnpqrstuvwxyz
+NO
+YES
+xzytabcdefghijklmnopqrsuvw
+NO

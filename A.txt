@@ -1,40 +1,60 @@
-A. Hurricane
-time limit per test0.25 s.
-memory limit per test1024 MB
-Un cuadrado tiene sus vértices en las coordenadas (0,0),(0,2N),(2N,2N),(2N,0)
-. Cada vértice tiene un atractor. Una partícula se coloca inicialmente en la posición (2N−1,2N−1)
-. Cada atractor puede ser activado individualmente, cualquier número de veces. Cuando se activa un atractor en la posición (i,j)
-, si una partícula está en la posición (p,q)
-, esta se moverá al punto medio entre (i,j)
- y (p,q)
-.
+Walter era una vez un prometedor químico. Ahora enseña química a estudiantes de secundaria y recientemente le diagnosticaron cáncer de pulmón. En medio de la desesperación y la emoción, decide utilizar sus habilidades químicas para producir drogas ilegales y ganar dinero rápido para su familia. Forma una asociación con uno de sus antiguos estudiantes, Jesse, quien tiene experiencia en el mundo de las drogas.
 
-Dados N
- y un punto (x,y)
-, calcula el menor número de veces que tienes que activar los atractores para que la partícula termine en la posición (x,y)
-. Puedes asumir que para todos los casos de prueba existe una solución.
+Ahora Walter y Jesse se están preparando para su primer "cocinado" (el proceso de fabricar las drogas). Tienen una lista de artículos que necesitan para la preparación, pero se dan cuenta de que deben ser muy cuidadosos al ir a la tienda. La razón es que puede resultar sospechoso comprar ciertos pares de artículos, como medicamentos para el resfriado y ácido de batería, en la misma visita.
 
-Input
-La entrada consiste en una sola línea que contiene tres enteros N
-, x
- e y
-, tales que 1≤N≤20
- y 0<x,y<2N
-.
+Deciden dividir los artículos entre ellos, de manera que cada uno pueda ir a la tienda una vez y comprar su parte de artículos sin correr el riesgo de levantar sospechas. Ayúdales a encontrar esa división, o indícales que no es posible.
 
-Output
-Imprime una sola línea, conteniendo el menor número de veces que tienes que activar los atractores.
-
-Examples
-InputCopy
-1 1 1
-OutputCopy
-0
-InputCopy
-4 12 4
-OutputCopy
+Entrada
+La primera línea de la entrada contiene dos enteros 
+N
+N, 
 1
-InputCopy
-4 3 1
-OutputCopy
+≤
+N
+<
+100
+000
+1≤N<100000, el número de artículos que desean comprar. Las siguientes 
+N
+N líneas contienen los nombres de estos artículos, todos los cuales son diferentes. Un nombre consta de un máximo de 
+20
+20 letras minúsculas del alfabeto inglés o guiones bajos, y no está vacío. La siguiente línea de la entrada contiene dos enteros 
+M
+M, 
+0
+≤
+M
+<
+100
+000
+0≤M<100000, el número de pares de artículos que se consideran sospechosos al comprarse juntos. Luego siguen 
+M
+M líneas, cada una conteniendo los nombres de dos artículos diferentes que forman un par sospechoso. Cada par sospechoso se enumerará exactamente una vez.
+
+Salida
+Si es posible que Walter y Jesse dividan los artículos entre ellos, entonces muestra dos líneas. En la primera línea muestra los nombres de los artículos que Walter debería comprar. En la segunda línea muestra los nombres de los artículos que Jesse debería comprar. Si hay múltiples soluciones, muestra cualquiera de ellas. Si esto no es posible, muestra imposible.
+
+Ejemplo 1
+Inputcopy	Outputcopy
+5
+battery_acid
+drain_cleaner
+antifreeze
+cold_medicine
+lantern_fuel
+2
+cold_medicine battery_acid
+antifreeze lantern_fuel
+lantern_fuel drain_cleaner battery_acid
+antifreeze cold_medicine
+Ejemplo 2
+Inputcopy	Outputcopy
 3
+fuel
+lighter
+knife
+3
+fuel lighter
+lighter knife
+knife fuel
+impossible

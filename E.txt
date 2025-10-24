@@ -1,72 +1,57 @@
-E. Cuadraditos
-time limit per test2 s.
-memory limit per test256 MB
-Se te da un plano bidimensional, y necesitas colocar n
- fichas en él.
+Estás jugando un videojuego que tiene un laberinto de n filas con m columnas cada una. Cada celda puede estar libre o tener un obstáculo. Partes en la fila r y la columna c. En un paso te puedes mover una celda para arriba, abajo, izquierda o derecha si la celda a la que vas no tiene un obstáculo. No te puedes salir de los bordes del laberinto.
 
-Solo puedes colocar una ficha en un punto con coordenadas enteras. El costo de colocar una ficha en el punto (x,y)
- es igual a |x|+|y|
- (donde |a|
- es el valor absoluto de a
-).
+Desafortunadamente, tu teclado está a punto de romperse, solamente puedes oprimir las teclas izquierda x veces, y la derecha y veces. Las teclas de abajo y arriba están perfectas así que no te tienes que preocupar por ellas.
 
-El costo de colocar n
- fichas es igual al máximo entre los costos de cada ficha.
-
-Necesitas colocar n
- fichas en el plano de tal manera que la distancia euclidiana entre cada par de fichas sea estrictamente mayor que 1
-, y el costo sea el mínimo posible.
+Ahora quieres saber a cuántas celdas del laberinto es posible llegar con algún camino.
 
 Input
-La primera línea contiene un entero t
- (1≤t≤104
-) — el número de casos de prueba. A continuación, siguen t
- casos.
+La primera linea tiene dos enteros n, m (1 ≤ n, m ≤ 2000) — la cantidad de filas y columnas del laberinto respectivamente.
 
-La primera y única línea de cada caso de prueba contiene un entero n
- (1≤n≤1018
-) — el número de fichas que necesitas colocar.
+La segunda linea tiene dos enteros r, c (1 ≤ r ≤ n, 1 ≤ c ≤ m) — la fila y la columna en la que partes.
+
+La tercera linea tiene dos enteros x, y (0 ≤ x, y ≤ 109) — la máxima cantidad de veces que puedes presionar izquierda y derecha respectivamente.
+
+Las siguientes n lineas describen el laberinto. Cada una tiene m carácteres que pueden ser '.' o '*'. El símbolo '.' significa que la celda está libre, en cambio '*' significa que la celda tiene un obstáculo.
+
+Se garantiza que la celda inicial no tiene ningún obstáculo.
 
 Output
-Para cada caso de prueba, imprime un único entero — el costo mínimo para colocar n
- fichas si la distancia entre cada par de fichas debe ser estrictamente mayor que 1
-.
+Imprime exactamente un entero — el número de celdas a las cuales se puede llegar incluyendo la celda inicial.
 
-Example
-InputCopy
-4
-1
-3
-5
-975461057789971042
-OutputCopy
-0
-1
-2
-987654321
+Sample 1
+Inputcopy	Outputcopy
+4 5
+3 2
+1 2
+.....
+.***.
+...**
+*....
+10
+Sample 2
+Inputcopy	Outputcopy
+4 4
+2 2
+0 1
+....
+..*.
+....
+....
+7
 Note
-En el primer caso de prueba, puedes colocar la única ficha en el punto (0,0)
- con un costo total igual a 0+0=0
-.
+Las celdas a las que se puede llegar están marcadas con un '+'.
 
-En el segundo caso de prueba, puedes, por ejemplo, colocar fichas en los puntos (−1,0)
-, (0,1)
- y (1,0)
- con costos |−1|+|0|=1
-, |0|+|1|=1
- y |0|+|1|=1
-. La distancia entre cada par de fichas es mayor que 1
- (por ejemplo, la distancia entre (−1,0)
- y (0,1)
- es igual a 2–√
-). El costo total es igual a max(1,1,1)=1
-.
+Primer ejemplo:
 
-En el tercer caso de prueba, puedes, por ejemplo, colocar fichas en los puntos (−1,−1)
-, (−1,1)
-, (1,1)
-, (0,0)
- y (0,2)
-. El costo total es igual a max(2,2,2,0,2)=2
-.
 
++++..
++***.
++++**
+*+++.
+Segundo ejemplo:
+
+
+.++.
+.+*.
+.++.
+.++.

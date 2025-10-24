@@ -1,66 +1,214 @@
-D. Parcial
-time limit per test1 s.
-memory limit per test256 MB
-Se te da un conjunto de problemas (*problemset*) que consiste en n
- problemas. La dificultad del i
--ésimo problema es ai
-. Se garantiza que todas las dificultades son distintas y se dan en orden creciente.
+Se te da un grafo no dirigido que consiste en 
+n
+n vértices y 
+m
+m aristas. Tu tarea es encontrar el número de componentes conectadas que son ciclos.
 
-Tienes que armar un contest que consista en algunos problemas del conjunto dado. En otras palabras, el contest que debes armar debe ser un subconjunto de problemas (no necesariamente consecutivos) del conjunto de problemas dado. Solo hay una condición que debe cumplirse: para cada problema, excepto el más difícil (el problema con la máxima dificultad), debe haber un problema con una dificultad mayor que la de este, pero no más del doble de su dificultad. En otras palabras, si ai1,ai2,…,aip
- son las dificultades de los problemas seleccionados en orden creciente, entonces para cada j
- desde 1
- hasta p−1
- se debe cumplir que aij+1≤aij⋅2
-. Esto significa que un contest que consta de un solo problema siempre es válido.
+Aquí hay algunas definiciones de la teoría de grafos.
 
-Entre todos los contests que satisfacen la condición anterior, tienes que armar uno con el máximo número de problemas. Tu tarea es encontrar este número de problemas.
+Un grafo no dirigido consiste en dos conjuntos: el conjunto de nodos (llamados vértices) y el conjunto de aristas. Cada arista conecta un par de vértices. Todas las aristas son bidireccionales (es decir, si un vértice 
+a
+a está conectado con un vértice 
+b
+b, un vértice 
+b
+b también está conectado con un vértice 
+a
+a). Una arista no puede conectar un vértice consigo mismo, hay como máximo una arista entre un par de vértices.
 
-Input
-La primera línea de la entrada contiene un entero n
- (1≤n≤2⋅105
-) — el número de problemas en el conjunto.
+Dos vértices 
+u
+u y 
+v
+v pertenecen a la misma componente conectada si y solo si hay al menos un camino a lo largo de las aristas que conecta 
+u
+u y 
+v
+v.
 
-La segunda línea de la entrada contiene n
- enteros a1,a2,…,an
- (1≤ai≤109
-) — las dificultades de los problemas. Se garantiza que las dificultades de los problemas son distintas y se dan en orden creciente.
+Una componente conectada es un ciclo si y solo si sus vértices pueden ser reordenados de tal manera que:
 
-Output
-Imprime un solo entero — el número máximo de problemas en un contest que satisfaga la condición del enunciado.
+el primer vértice está conectado con el segundo vértice por una arista,
+el segundo vértice está conectado con el tercer vértice por una arista,
+...
+el último vértice está conectado con el primer vértice por una arista,
+todas las aristas descritas de un ciclo son distintas.
+Un ciclo no contiene ninguna otra arista excepto las descritas arriba. Por definición, cualquier ciclo contiene tres o más vértices.
 
-Examples
-InputCopy
-10
-1 2 5 6 7 10 21 23 24 49
-OutputCopy
-4
-InputCopy
-5
-2 10 50 110 250
-OutputCopy
-1
-InputCopy
+Hay 
 6
-4 7 12 100 150 199
-OutputCopy
+6 componentes conectadas, 
+2
+2 de ellas son ciclos: 
+[
+7
+,
+10
+,
+16
+]
+[7,10,16] y 
+[
+5
+,
+11
+,
+9
+,
+15
+]
+[5,11,9,15].
+Entrada
+La primera línea contiene dos números enteros 
+n
+n y 
+m
+m (
+1
+≤
+n
+≤
+2
+⋅
+10
+5
+1≤n≤2⋅10 
+5
+ , 
+0
+≤
+m
+≤
+2
+⋅
+10
+5
+0≤m≤2⋅10 
+5
+ ) — número de vértices y aristas.
+
+Las siguientes 
+m
+m líneas contienen aristas: la arista 
+i
+i se da como un par de vértices 
+v
+i
+v 
+i
+​
+ , 
+u
+i
+u 
+i
+​
+  (
+1
+≤
+v
+i
+,
+u
+i
+≤
+n
+1≤v 
+i
+​
+ ,u 
+i
+​
+ ≤n, 
+u
+i
+≠
+v
+i
+u 
+i
+​
+ 
+
+=v 
+i
+​
+ ). No hay aristas múltiples en el grafo dado, es decir, para cada par (
+v
+i
+,
+u
+i
+v 
+i
+​
+ ,u 
+i
+​
+ ) no hay otros pares (
+v
+i
+,
+u
+i
+v 
+i
+​
+ ,u 
+i
+​
+ ) y (
+u
+i
+,
+v
+i
+u 
+i
+​
+ ,v 
+i
+​
+ ) en la lista de aristas.
+
+Salida
+Imprime un entero — el número de componentes conectadas que también son ciclos.
+
+Ejemplos
+Inputcopy	Outputcopy
+5 4
+1 2
+3 4
+5 4
+3 5
+1
+Inputcopy	Outputcopy
+17 15
+1 8
+1 12
+5 11
+11 9
+9 15
+15 5
+4 13
+3 13
+4 3
+10 16
+7 10
+16 7
+14 3
+14 4
+17 6
+2
+Nota
+En el primer ejemplo, solo la componente 
+[
 3
-Note
-Descripción del primer ejemplo: hay 10
- contests válidos de 1
- problema, 10
- contests válidos de 2
- problemas ([1,2],[5,6],[5,7],[5,10],[6,7],[6,10],[7,10],[21,23],[21,24],[23,24]
-), 5
- contests válidos de 3
- problemas ([5,6,7],[5,6,10],[5,7,10],[6,7,10],[21,23,24]
-) y un único contests válido de 4
- problemas ([5,6,7,10]
-).
+,
+4
+,
+5
+]
+[3,4,5] también es un ciclo.
 
-En el segundo ejemplo, todos los contests válidos constan de 1
- problema.
-
-En el tercer ejemplo hay dos contests que constan de 3
- problemas: [4,7,12]
- y [100,150,199]
-.
+La ilustración anterior corresponde al segundo ejemplo.
