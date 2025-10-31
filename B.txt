@@ -1,58 +1,194 @@
-Polycarp quiere armar su propio teclado. Los diseños con múltiples filas son demasiado complicados para él, su teclado consistirá en una sola fila, donde todas las letras minúsculas del alfabeto latino estarán dispuestas en algún orden.
+El granjero John tiene 
+n
+n arreglos 
+a
+1
+,
+a
+2
+,
+…
+,
+a
+n
+a 
+1
+​
+ ,a 
+2
+​
+ ,…,a 
+n
+​
+  que pueden tener longitudes distintas. Los apilará uno sobre otro, formando una cuadrícula con 
+n
+n filas. Los arreglos están alineados a la izquierda y puede apilarlos en cualquier orden que quiera.
 
-Polycarp utiliza la misma contraseña en todos los sitios web donde está registrado (es malo, pero a él no le importa). Quiere armar un teclado que le permita escribir esta contraseña muy fácilmente. No le gusta mover los dedos mientras escribe la contraseña, por lo que, para cada par de caracteres adyacentes en la contraseña, deben ser adyacentes en el teclado. Por ejemplo, si la contraseña es abacaba, entonces el diseño cabdefghi... es perfecto, ya que los caracteres a y c son adyacentes en el teclado, y a y b son adyacentes en el teclado. Se garantiza que no hay dos caracteres iguales adyacentes en la contraseña, por lo que, por ejemplo, la contraseña no puede ser password (dos caracteres s son adyacentes).
+Luego, la gravedad hará su trabajo. Cualquier celda que no esté en la fila inferior y que no tenga un elemento justo debajo, caerá una fila hacia abajo. Este proceso se repetirá hasta que no queden celdas que cumplan esa condición.
 
-¿Puedes ayudar a Polycarp a elegir el diseño perfecto del teclado, si es posible?
+Entre todas las formas posibles en que John puede apilar los arreglos, imprime la fila inferior que sea lexicográficamente mínima después de que la gravedad actúe.
 
 Entrada
-La primera línea contiene un entero 
-T
-T (
+La primera línea contiene 
+t
+t (
 1
 ≤
-T
+t
 ≤
 1000
-1≤T≤1000) — el número de casos de prueba.
+1≤t≤1000)  — el número de casos de prueba.
 
-Luego siguen 
-T
-T líneas, cada una conteniendo una cadena 
-s
-s (
+La primera línea de cada caso contiene 
+n
+n (
 1
 ≤
-∣
-s
-∣
+n
 ≤
-200
-1≤∣s∣≤200) que representa el caso de prueba. 
-s
-s consiste solo de letras minúsculas del alfabeto latino. No hay dos caracteres iguales adyacentes en 
-s
-s.
+2
+⋅
+10
+5
+1≤n≤2⋅10 
+5
+ ).
+
+En las siguientes 
+n
+n líneas, el primer número 
+k
+i
+k 
+i
+​
+  (
+1
+≤
+k
+≤
+2
+⋅
+10
+5
+1≤k≤2⋅10 
+5
+ ) indica la longitud de 
+a
+i
+a 
+i
+​
+ .
+
+Luego, siguen 
+k
+i
+k 
+i
+​
+  enteros separados por espacios 
+a
+i
+1
+,
+a
+i
+2
+,
+…
+,
+a
+i
+k
+i
+a 
+i 
+1
+​
+ 
+​
+ ,a 
+i 
+2
+​
+ 
+​
+ ,…,a 
+i 
+k 
+i
+​
+ 
+​
+ 
+​
+  (
+1
+≤
+a
+i
+j
+≤
+2
+⋅
+10
+5
+1≤a 
+i 
+j
+​
+ 
+​
+ ≤2⋅10 
+5
+ ).
+
+Se garantiza que la suma de 
+n
+n y la suma de todos los 
+k
+i
+k 
+i
+​
+  en todos los casos no supera 
+2
+⋅
+10
+5
+2⋅10 
+5
+ .
 
 Salida
-Para cada caso de prueba, haz lo siguiente:
+Para cada caso de prueba, imprime en una línea la fila inferior lexicográficamente mínima tras la caída por gravedad.
 
-si es imposible armar un teclado perfecto, imprime NO (en mayúsculas, esto es importante en este problema);
-de lo contrario, imprime YES (en mayúsculas), y luego una cadena que consiste en 
-26
-26 letras minúsculas del alfabeto latino — el diseño perfecto. Cada letra latina debe aparecer en esta cadena exactamente una vez. Si hay múltiples respuestas, imprime cualquiera de ellas.
 Ejemplos
-Inputcopy	Outputcopy
-5
-ababa
-codedoca
-abcda
-zxzytyz
-abcdefghijklmnopqrstuvwxyza
-YES
-bacdefghijklmnopqrstuvwxyz
-YES
-edocabfghijklmnpqrstuvwxyz
-NO
-YES
-xzytabcdefghijklmnopqrsuvw
-NO
+Inputcopy	
+4
+1
+3 5 2 7
+2
+2 2 9
+3 3 1 4
+3
+1 5
+2 5 1
+2 5 2
+3
+3 4 4 9
+7 7 6 5 4 3 2 1
+4 2 4 5 1
+
+Outputcopy
+5 2 7 
+2 9 4 
+5 1 
+2 4 5 1 3 2 1 
+Nota
+Demostración para el caso de prueba 2:
+
+
+Demostración para el caso de prueba 4:
+

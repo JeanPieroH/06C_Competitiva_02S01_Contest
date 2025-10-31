@@ -1,0 +1,184 @@
+Últimamente, Vlad se ha obsesionado con los árboles generadores, así que sus amigos, sin pensarlo dos veces, le regalaron un grafo no dirigido, conectado y ponderado con 
+n
+n vértices y 
+m
+m aristas para su cumpleaños.
+
+Vlad definió la ority de un árbol generador como el OR bit a bit de todos sus pesos, y ahora quiere saber cuál es el mínimo ority posible que se puede conseguir eligiendo un árbol generador adecuado. Un árbol generador es un subgrafo conectado del grafo dado que no contiene ciclos.
+
+En otras palabras, quieres quedarte con 
+n
+−
+1
+n−1 aristas para que el grafo siga conectado y el OR bit a bit de los pesos de esas aristas sea lo más pequeño posible. Tu tarea es encontrar ese valor mínimo del OR bit a bit.
+
+Entrada
+La primera línea de la entrada contiene un entero 
+t
+t (
+1
+≤
+t
+≤
+10
+4
+1≤t≤10 
+4
+ ) — el número de casos de prueba.
+
+Antes de cada caso de prueba hay una línea en blanco.
+
+Luego vienen dos números 
+n
+n y 
+m
+m (
+3
+≤
+n
+≤
+2
+⋅
+10
+5
+,
+n
+−
+1
+≤
+m
+≤
+2
+⋅
+10
+5
+3≤n≤2⋅10 
+5
+ ,n−1≤m≤2⋅10 
+5
+ ) — la cantidad de vértices y aristas del grafo, respectivamente.
+
+Las siguientes 
+m
+m líneas describen las aristas. La línea 
+i
+i contiene tres números 
+v
+i
+v 
+i
+​
+ , 
+u
+i
+u 
+i
+​
+  y 
+w
+i
+w 
+i
+​
+  (
+1
+≤
+v
+i
+,
+u
+i
+≤
+n
+1≤v 
+i
+​
+ ,u 
+i
+​
+ ≤n, 
+1
+≤
+w
+i
+≤
+10
+9
+1≤w 
+i
+​
+ ≤10 
+9
+ , 
+v
+i
+≠
+u
+i
+v 
+i
+​
+ 
+
+=u 
+i
+​
+ ) — los vértices que conecta la arista y su peso.
+
+Se garantiza que la suma de 
+m
+m y la suma de 
+n
+n en todos los casos de prueba no supera 
+2
+⋅
+10
+5
+2⋅10 
+5
+  y que cada grafo está conectado.
+
+Salida
+Imprime 
+t
+t líneas, cada una con la respuesta para el conjunto de datos correspondiente — el mínimo ority posible de un árbol generador.
+
+Ejemplos
+Inputcopy	
+3
+
+
+3 3
+1 2 1
+2 3 2
+1 3 2
+
+
+5 7
+4 2 7
+2 5 8
+3 4 2
+3 2 1
+2 4 2
+4 1 2
+1 2 2
+
+
+3 4
+1 2 1
+2 3 2
+1 3 3
+3 1 4
+
+Outputcopy
+2
+10
+3
+
+
+Nota
+Grafo del primer caso de prueba.
+El ority de este árbol es 2 or 2 = 2 y es el mínimo.
+Si no excluyes la arista con peso 
+1
+1 el ority sería 1 or 2 = 3.
