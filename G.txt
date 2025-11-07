@@ -1,0 +1,30 @@
+G. Jeje
+time limit per test0.5 s.
+memory limit per test64 MB
+La protección de un programa popular desarrollado por una de las compañías de IT City está organizada de la siguiente manera. Después de la instalación, muestra un número aleatorio de cinco dígitos que debe enviarse por SMS a un número de teléfono particular. En respuesta, llega un código de activación por SMS.
+
+Un joven hacker Vasya desensambló el programa y encontró el algoritmo que transforma el número mostrado en el código de activación. Nota: está claro que Vasya es un hacker respetuoso de la ley, y lo hizo con un noble propósito — mostrar al desarrollador la imperfección de su protección.
+
+El algoritmo encontrado funciona de la siguiente manera. Primero los dígitos del número se reordenan en el siguiente orden <primer dígito><tercer dígito><quinto dígito><cuarto dígito><segundo dígito>. Por ejemplo, el reordenamiento de 12345
+ debería resultar en 13542
+. En la segunda etapa, el número se eleva a la quinta potencia. El resultado del reordenamiento y exponenciación del número 12345
+ es 455 422 043 125 550 171 232
+. La respuesta son los 5
+ últimos dígitos de este resultado. Para el número 12345
+ la respuesta debería ser 71232
+.
+
+Vasya va a escribir un programa "keygen" (generador de claves) que implemente este algoritmo. ¿Puedes hacer lo mismo?
+
+Input
+La única línea de la entrada contiene un número entero positivo de cinco dígitos para el cual se debe encontrar el código de activación.
+
+Output
+Imprime exactamente 5
+ dígitos sin espacios entre ellos — el código de activación encontrado del programa.
+
+Examples
+InputСкопировать
+12345
+OutputСкопировать
+71232

@@ -1,194 +1,51 @@
-El granjero John tiene 
-n
-n arreglos 
-a
-1
-,
-a
-2
-,
-…
-,
-a
-n
-a 
-1
-​
- ,a 
-2
-​
- ,…,a 
-n
-​
-  que pueden tener longitudes distintas. Los apilará uno sobre otro, formando una cuadrícula con 
-n
-n filas. Los arreglos están alineados a la izquierda y puede apilarlos en cualquier orden que quiera.
+B. coins
+time limit per test2 s.
+memory limit per test256 MB
+Alice y Bob juegan un juego. Hay una tira de papel dividida en n+1
+ casillas numeradas de izquierda a derecha comenzando desde 0
+. Hay una ficha colocada en la n
+-ésima casilla (la última).
 
-Luego, la gravedad hará su trabajo. Cualquier celda que no esté en la fila inferior y que no tenga un elemento justo debajo, caerá una fila hacia abajo. Este proceso se repetirá hasta que no queden celdas que cumplan esa condición.
+Los jugadores toman turnos, Alice empieza primero. Cada jugador durante su turno tiene que mover la ficha 1
+, 2
+ o k
+ casillas a la izquierda (así que, si la ficha está actualmente en la casilla i
+, el jugador puede moverla a la casilla i−1
+, i−2
+ o i−k
+). La ficha no debe salirse de los bordes de la tira de papel: es imposible, por ejemplo, moverla k
+ casillas a la izquierda si la casilla actual tiene el número i<k
+. El jugador que no puede hacer un movimiento pierde el juego.
 
-Entre todas las formas posibles en que John puede apilar los arreglos, imprime la fila inferior que sea lexicográficamente mínima después de que la gravedad actúe.
+¿Quién gana si ambos participantes juegan óptimamente?
 
-Entrada
-La primera línea contiene 
-t
-t (
-1
-≤
-t
-≤
-1000
-1≤t≤1000)  — el número de casos de prueba.
+A Alice y Bob les gustaría jugar varios juegos, así que debes determinar el ganador en cada juego.
 
-La primera línea de cada caso contiene 
-n
-n (
-1
-≤
-n
-≤
-2
-⋅
-10
-5
-1≤n≤2⋅10 
-5
- ).
+Input
+La primera línea contiene un único entero T
+ (1≤T≤100
+) — el número de juegos. Las siguientes T
+ líneas contienen un juego por línea. Todos los juegos son independientes.
 
-En las siguientes 
-n
-n líneas, el primer número 
-k
-i
-k 
-i
-​
-  (
-1
-≤
-k
-≤
-2
-⋅
-10
-5
-1≤k≤2⋅10 
-5
- ) indica la longitud de 
-a
-i
-a 
-i
-​
- .
+Cada una de las siguientes T
+ líneas contiene dos enteros n
+ y k
+ (0≤n≤109
+, 3≤k≤109
+) — la longitud de la tira y la constante que denota el tercer movimiento, respectivamente.
 
-Luego, siguen 
-k
-i
-k 
-i
-​
-  enteros separados por espacios 
-a
-i
-1
-,
-a
-i
-2
-,
-…
-,
-a
-i
-k
-i
-a 
-i 
-1
-​
- 
-​
- ,a 
-i 
-2
-​
- 
-​
- ,…,a 
-i 
-k 
-i
-​
- 
-​
- 
-​
-  (
-1
-≤
-a
-i
-j
-≤
-2
-⋅
-10
-5
-1≤a 
-i 
-j
-​
- 
-​
- ≤2⋅10 
-5
- ).
+Output
+Para cada juego, imprime Alice si Alice gana este juego y Bob en caso contrario.
 
-Se garantiza que la suma de 
-n
-n y la suma de todos los 
-k
-i
-k 
-i
-​
-  en todos los casos no supera 
-2
-⋅
-10
-5
-2⋅10 
-5
- .
-
-Salida
-Para cada caso de prueba, imprime en una línea la fila inferior lexicográficamente mínima tras la caída por gravedad.
-
-Ejemplos
-Inputcopy	
+Example
+InputСкопировать
 4
-1
-3 5 2 7
-2
-2 2 9
-3 3 1 4
-3
-1 5
-2 5 1
-2 5 2
-3
-3 4 4 9
-7 7 6 5 4 3 2 1
-4 2 4 5 1
-
-Outputcopy
-5 2 7 
-2 9 4 
-5 1 
-2 4 5 1 3 2 1 
-Nota
-Demostración para el caso de prueba 2:
-
-
-Demostración para el caso de prueba 4:
-
+0 3
+3 3
+3 4
+4 4
+OutputСкопировать
+Bob
+Alice
+Bob
+Alice

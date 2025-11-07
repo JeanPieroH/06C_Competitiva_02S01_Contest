@@ -1,0 +1,73 @@
+P. XP
+time limit per test2 s.
+memory limit per test512 MB
+Se te da un par de enteros (a,b)
+ y un entero x
+.
+
+Puedes cambiar el par de dos maneras diferentes:
+
+establecer (asignar) a:=|a−b|
+;
+establecer (asignar) b:=|a−b|
+,
+donde |a−b|
+ es la diferencia absoluta entre a
+ y b
+.
+El par (a,b)
+ se llama x
+-mágico si x
+ se puede obtener como a
+ o como b
+ usando solo las operaciones dadas (es decir, el par (a,b)
+ es x
+-mágico si a=x
+ o b=x
+ después de aplicar algún número de operaciones). Puedes aplicar las operaciones cualquier cantidad de veces (incluso cero).
+
+Tu tarea es averiguar si el par (a,b)
+ es x
+-mágico o no.
+
+Tienes que responder t
+ casos de prueba independientes.
+
+Input
+La primera línea de la entrada contiene un entero t
+ (1≤t≤104
+) — el número de casos de prueba. Las siguientes t
+ líneas describen los casos de prueba.
+
+La única línea del caso de prueba contiene tres enteros a
+, b
+ y x
+ (1≤a,b,x≤1018
+).
+
+Output
+Para el i
+-ésimo caso de prueba, imprime YES si el par correspondiente (a,b)
+ es x
+-mágico y NO en caso contrario.
+
+Example
+InputСкопировать
+8
+6 9 3
+15 38 7
+18 8 8
+30 30 30
+40 50 90
+24 28 20
+365 216 52
+537037812705867558 338887693834423551 3199921013340
+OutputСкопировать
+YES
+YES
+YES
+YES
+NO
+YES
+YES
+YES

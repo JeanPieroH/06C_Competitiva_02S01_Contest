@@ -1,0 +1,54 @@
+H. Sumando
+time limit per test1 s.
+memory limit per test256 MB
+Definamos S(x)
+ como la suma de los dígitos del número x
+ escrito en el sistema decimal. Por ejemplo, S(5)=5
+, S(10)=1
+, S(322)=7
+.
+
+Llamaremos a un entero x
+ interesante si S(x+1)<S(x)
+. En cada prueba se te dará un entero n
+. Tu tarea es calcular el número de enteros x
+ tales que 1≤x≤n
+ y x
+ es interesante.
+
+Input
+La primera línea contiene un entero t
+ (1≤t≤1000
+)  — número de casos de prueba.
+
+Luego siguen t
+ líneas, la i
+-ésima línea contiene un entero n
+ (1≤n≤109
+) para el i
+-ésimo caso de prueba.
+
+Output
+Imprime t
+ enteros, el i
+-ésimo debe ser la respuesta para el i
+-ésimo caso de prueba.
+
+Example
+InputСкопировать
+5
+1
+9
+10
+34
+880055535
+OutputСкопировать
+0
+1
+1
+3
+88005553
+Note
+El primer número interesante es igual a 9
+.
+

@@ -1,0 +1,59 @@
+A. Cinta
+time limit per test1 s.
+memory limit per test512 MB
+Hay b
+ chicos y g
+ chicas participando en la Olimpiada de las Metrópolis. Habrá un torneo de juegos de mesa por la noche y n
+ participantes han aceptado la invitación. Los organizadores no saben cuántos chicos y chicas hay entre ellos.
+
+Los organizadores están preparando gafetes rojos para las chicas y azules para los chicos.
+
+Vasya preparó n+1
+ mazos de gafetes. El i
+-ésimo (donde i
+ va de 0
+ a n
+, inclusive) mazo contiene i
+ gafetes azules y n−i
+ rojos. El número total de gafetes en cualquier mazo es exactamente n
+.
+
+Determina el número mínimo de mazos entre estos n+1
+ que Vasya debe tomar, para que haya un mazo adecuado sin importar cuántas chicas y chicos haya entre los participantes del torneo.
+
+Input
+La primera línea contiene un entero b
+ (1≤b≤300
+), el número de chicos.
+
+La segunda línea contiene un entero g
+ (1≤g≤300
+), el número de chicas.
+
+La tercera línea contiene un entero n
+ (1≤n≤b+g
+), el número de participantes del torneo de juegos de mesa.
+
+Output
+Imprime el único entero, el número mínimo de mazos de gafetes que Vasya podría tomar.
+
+Examples
+InputСкопировать
+5
+6
+3
+OutputСкопировать
+4
+InputСкопировать
+5
+3
+5
+OutputСкопировать
+4
+Note
+En el primer ejemplo, se debe tomar cada uno de los 4 mazos: (0 azules, 3 rojos), (1 azul, 2 rojos), (2 azules, 1 rojo), (3 azules, 0 rojos).
+
+En el segundo ejemplo, se deben tomar 4 mazos: (2 azules, 3 rojos), (3 azules, 2 rojos), (4 azules, 1 rojo), (5 azules, 0 rojos). Los mazos (0 azules, 5 rojos) y (1 azul, 4 rojos) no pueden ser usados.
+
+
+Codeforc

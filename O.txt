@@ -1,0 +1,48 @@
+O. Pavlov
+time limit per test1 s.
+memory limit per test256 MB
+Las vacaciones han terminado. Gracias a la ayuda del hacker Leha, Noora logró ingresar a la universidad de sus sueños que se encuentra en una ciudad llamada Pavlopolis. Es bien sabido que las universidades proporcionan a los estudiantes residencias (o "dormitorios") durante el período de estudios universitarios. En consecuencia, Noora tuvo que dejar Vičkopolis y mudarse a Pavlopolis. Así, Leha se quedó completamente solo en la tranquila ciudad de Vičkopolis. ¡Casi incluso cayó en depresión por aburrimiento!
+
+A Leha se le ocurrió una tarea para relajarse un poco. Elige dos enteros A
+ y B
+ y luego calcula el máximo común divisor de los enteros "A
+ factorial" y "B
+ factorial". Formalmente, el hacker quiere averiguar GCD(A!,B!)
+. Es bien sabido que el factorial de un entero x
+ es el producto de todos los enteros positivos menores o iguales a x
+. Así x!=1⋅2⋅3⋅⋯⋅(x−1)⋅x
+. Por ejemplo 4!=1⋅2⋅3⋅4=24
+. Recuerda que GCD(x,y)
+ es el entero positivo más grande q
+ que divide (sin residuo) tanto a x
+ como a y
+.
+
+Leha ha aprendido cómo resolver esta tarea de manera muy efectiva. Tú eres capaz de enfrentarla no peor, ¿verdad?
+
+Input
+La primera y única línea contiene dos enteros A
+ y B
+ (1≤A,B≤109,min(A,B)≤12)
+.
+
+Output
+Imprime un único entero que denote el máximo común divisor de los enteros A!
+ y B!
+.
+
+Example
+InputСкопировать
+4 3
+OutputСкопировать
+6
+Note
+Considera el ejemplo.
+
+4!=1⋅2⋅3⋅4=24
+. 3!=1⋅2⋅3=6
+. El máximo común divisor de los enteros 24
+ y 6
+ es exactamente 6
+.
+

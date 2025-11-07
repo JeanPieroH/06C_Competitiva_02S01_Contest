@@ -1,0 +1,52 @@
+N. Moneda?
+time limit per test1.5 s.
+memory limit per test512 MB
+Andrew estaba muy emocionado por participar en la Olimpiada de las Metrópolis. Los días pasaron volando, y Andrew ya está en el aeropuerto, listo para irse a casa. Le quedan n rublos, y le gustaría cambiarlos por billetes de euro y dólar. Andrew puede mezclar billetes de dólar y euro de la forma que quiera. El precio de un dólar es d rublos, y un euro cuesta e rublos.
+
+Recuerda que existen los siguientes billetes de dólar: 1, 2, 5, 10, 20, 50, 100, y los siguientes billetes de euro — 5, 10, 20, 50, 100, 200 (nota que, en este problema no consideramos el billete de 500
+ euros, es difícil encontrar dichos billetes en los puntos de cambio de divisas). Andrew puede comprar cualquier combinación de billetes, y su objetivo es minimizar el número total de rublos que tendrá después del intercambio.
+
+Ayúdalo — escribe un programa que dados los enteros n, e y d, encuentre el número mínimo de rublos que Andrew puede tener después de comprar billetes de dólar y euro.
+
+Input
+La primera línea de la entrada contiene un entero n
+ (1≤n≤108
+) — la suma inicial en rublos que tiene Andrew.
+
+La segunda línea de la entrada contiene un entero d
+ (30≤d≤100
+) — el precio de un dólar en rublos.
+
+La tercera línea de la entrada contiene un entero e
+ (30≤e≤100
+) — el precio de un euro en rublos.
+
+Output
+Imprime un entero — el número mínimo de rublos que Andrew puede tener después de comprar billetes de dólar y euro de manera óptima.
+
+Examples
+InputСкопировать
+100
+60
+70
+OutputСкопировать
+40
+InputСкопировать
+410
+55
+70
+OutputСкопировать
+5
+InputСкопировать
+600
+60
+70
+OutputСкопировать
+0
+Note
+En el primer ejemplo, podemos comprar solo 1 dólar porque no hay billete de 1 euro.
+
+En el segundo ejemplo, el cambio óptimo es comprar 5 euros y 1 dólar.
+
+En el tercer ejemplo, el cambio óptimo es comprar 10 dólares en un billete.
+

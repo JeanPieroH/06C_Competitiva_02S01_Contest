@@ -1,0 +1,28 @@
+M. Ley de moore
+time limit per test0.5 s.
+memory limit per test64 MB
+La administración de la ciudad de IT City decidió instalar un símbolo del progreso científico y técnico en la plaza principal de la ciudad, concretamente un panel indicador que muestra el efecto de la ley de Moore en tiempo real.
+
+La ley de Moore es la observación de que el número de transistores en un circuito integrado denso se duplica aproximadamente cada 24
+ meses. La implicación de la ley de Moore es que el rendimiento de las computadoras como función del tiempo también aumenta exponencialmente.
+
+Debes preparar la información que cambiará cada segundo para mostrarla en el panel indicador. Asumamos que cada segundo el número de transistores aumenta exactamente 1.000000011
+ veces.
+
+Input
+La única línea de la entrada contiene un par de enteros n
+ (1000≤n≤10 000
+) y t
+ (0≤t≤2 000 000 000
+) — el número de transistores en el momento inicial y el número de segundos transcurridos desde el momento inicial.
+
+Output
+Imprime un número — la estimación del número de transistores en un circuito integrado denso en t
+ segundos desde el momento inicial. El error relativo de tu respuesta no debe ser mayor que 10−6
+.
+
+Examples
+InputСкопировать
+1000 1000000
+OutputСкопировать
+1011.060722383550382782399454922040

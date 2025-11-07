@@ -1,0 +1,28 @@
+F. plei
+time limit per test0.5 s.
+memory limit per test64 MB
+Hay una leyenda en la universidad IT City. Un estudiante que no logró responder todas las preguntas en el examen de teoría de juegos recibe una oportunidad más de su profesor. El estudiante tiene que jugar un juego con el profesor.
+
+El juego se juega en un campo cuadrado que consiste en n×n
+ celdas. Inicialmente todas las celdas están vacías. En cada turno, un jugador elige y pinta una celda vacía que no tenga lados comunes con celdas previamente pintadas. Esquinas adyacentes de celdas pintadas están permitidas. En el siguiente turno, el otro jugador hace lo mismo, luego el primero y así sucesivamente. El jugador que no tenga celdas para pintar en su turno pierde.
+
+El profesor ha elegido el tamaño del campo n
+ y ha permitido al estudiante elegir ser el primer o el segundo jugador en el juego. ¿Qué debería elegir el estudiante para ganar el juego? Ambos jugadores juegan óptimamente.
+
+Input
+La única línea de la entrada contiene un entero n
+ (1≤n≤1018
+) — el tamaño del campo.
+
+Output
+Imprime el número 1, si el jugador que hace el primer turno gana cuando ambos jugadores juegan óptimamente, de lo contrario imprime el número 2.
+
+Examples
+InputСкопировать
+1
+OutputСкопировать
+1
+InputСкопировать
+2
+OutputСкопировать
+2
