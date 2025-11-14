@@ -1,62 +1,74 @@
+Dada una cadena de longitud de hasta 100,000 que consiste en alfabetos y números. Salida el arreglo de sufijos de la cadena.
 
-C. jips
-time limit per test1 s.
-memory limit per test256 MB
-A Vanya realmente le gustan las matemáticas. Un día, cuando estaba resolviendo otro problema de matemáticas, se le ocurrió un árbol interesante. Este árbol se construye de la siguiente manera.
+Un arreglo de sufijos es un arreglo de enteros que da las posiciones iniciales (basadas en 0) de los sufijos de una cadena en orden lexicográfico. Considera la cadena "abracadabra0AbRa4Cad14abra". El tamaño del arreglo de sufijos es igual a la longitud de la cadena. A continuación se muestra la lista de 26 sufijos de la cadena junto con su posición inicial ordenada en orden lexicográfico:
 
-Inicialmente, el árbol tiene un solo vértice con el número 1
- — la raíz del árbol. Luego, Vanya le añade dos hijos, asignándoles números consecutivos — 2
- y 3
-, respectivamente. Después de eso, añadirá hijos a los vértices en orden creciente de sus números, comenzando desde 2
-, asignando a sus hijos los índices mínimos no utilizados. Como resultado, Vanya tendrá un árbol infinito con la raíz en el vértice 1
-, donde cada vértice tendrá exactamente dos hijos, y los números de los vértices estarán dispuestos secuencialmente por capas.
+POS SUFFIX
+ 11 0AbRa4Cad14abra
+ 20 14abra
+ 16 4Cad14abra
+ 21 4abra
+ 12 AbRa4Cad14abra
+ 17 Cad14abra
+ 14 Ra4Cad14abra
+ 25 a
+ 10 a0AbRa4Cad14abra
+ 15 a4Cad14abra
+ 22 abra
+  7 abra0AbRa4Cad14abra
+  0 abracadabra0AbRa4Cad14abra
+  3 acadabra0AbRa4Cad14abra
+ 18 ad14abra
+  5 adabra0AbRa4Cad14abra
+ 13 bRa4Cad14abra
+ 23 bra
+  8 bra0AbRa4Cad14abra
+  1 bracadabra0AbRa4Cad14abra
+  4 cadabra0AbRa4Cad14abra
+ 19 d14abra
+  6 dabra0AbRa4Cad14abra
+ 24 ra
+  9 ra0AbRa4Cad14abra
+  2 racadabra0AbRa4Cad14abra
+Nota: este es un problema de puntuación parcial.
+O(n2 log(n)) se espera que puntúe alrededor de 20-30. (Ordenamiento ingenuo de todos los sufijos)
+O(n log2(n)) se espera que puntúe alrededor de 40. (OK para la mayoría de los problemas de concursos de programación)
+O(n log n) se espera que puntúe alrededor de 60-70. (Usar ordenamiento por conteo para un tamaño de alfabeto pequeño)
+O(n) sin ajustes se espera que puntúe alrededor de 80-90.
+O(n) con ajustes se espera puntuar 100. (Esto es solo por diversión :)
 
-Parte del árbol de Vanya.
-Vanya se preguntó a cuánto es igual la suma de los números de los vértices en el camino desde el vértice con número 1
- hasta el vértice con número n
- en dicho árbol. Como a Vanya no le gusta contar, te pidió que lo ayudaras a encontrar esta suma.
+Entrada
+Una sola línea que contiene la cadena.
 
-Input
-La primera línea contiene un único entero t
- (1≤t≤104
-) — el número de casos de prueba.
+Salida
+El arreglo de sufijos de la cadena.
 
-A esto le siguen t
- líneas — la descripción de los casos de prueba. Cada línea contiene un entero n
- (1≤n≤1016
-) — el número del vértice para el cual Vanya quiere contar la suma de los números de los vértices en el camino desde la raíz hasta ese vértice.
+Ejemplo
+Inputcopy	Outputcopy
+abracadabra0AbRa4Cad14abra
 
-Output
-Para cada caso de prueba, imprime un entero — la suma deseada.
-
-Example
-InputСкопировать
-6
-3
+11
+20
+16
+21
+12
+17
+14
+25
 10
-37
-1
-10000000000000000
 15
-OutputСкопировать
-4
+22
+7
+0
+3
 18
-71
+5
+13
+23
+8
 1
-19999999999999980
-26
-Note
-En el primer caso de prueba del ejemplo, en el camino desde la raíz hasta el vértice 3
- hay dos vértices 1
- y 3
-, su suma es igual a 4
-.
-
-En el segundo caso de prueba del ejemplo, en el camino desde la raíz hasta el vértice con número 10
- hay vértices 1
-, 2
-, 5
-, 10
-, la suma de sus números es igual a 1+2+5+10=18
-.
-
+4
+19
+6
+24
+9
+2

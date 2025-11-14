@@ -1,62 +1,83 @@
-D. de-rotado
-time limit per test0.5 s.
-memory limit per test64 MB
-Vasya comenzó a trabajar en una empresa de visión artificial de IT City. El equipo de Vasya crea software y hardware para la identificación de personas por su rostro.
+khba is writing his girlfriend's name. He has 
+n
+n cubes, each with one lowercase Latin letter written on it. They are arranged in a row, forming a string 
+s
+s. His girlfriend's name is also a string 
+t
+t, consisting of 
+n
+n lowercase Latin letters.
 
-Uno de los "know-how" del proyecto es una cámara que rota sobre su eje óptico al disparar. La gente ve un artilugio llamativo — una cámara giratoria — se acerca para verla mejor, la mira. Y la cámara toma su foto en ese momento. ¿Qué podría ser mejor para una identificación de alta calidad?
-
-Pero no todo es tan simple. Las imágenes de la cámara aparecen rotadas también (en un fotograma de rotación de cámara en sentido horario, el contenido se rota en sentido antihorario). Pero el algoritmo de identificación solo puede funcionar con rostros que están ligeramente desviados de la vertical.
-
-A Vasya se le encomendó corregir la situación — rotar una imagen capturada para que la imagen esté mínimamente desviada de la vertical. Los requisitos eran severos. Primero, la imagen debe rotarse solo en un ángulo divisible por 90 grados para no perder ni un bit de información sobre la imagen. Segundo, los fotogramas de la cámara son tan enormes y los FPS son tan grandes que una velocidad de rotación adecuada solo la proporciona una solución de hardware FPGA. Y esta solución solo puede rotar 90 grados en sentido horario. Por supuesto, se puede aplicar un giro de 90 grados varias veces, pero en aras del rendimiento, el número de giros debe minimizarse.
-
-Ayuda a Vasya a implementar el programa que, dado el ángulo de rotación de la cámara, pueda determinar el número mínimo de giros de 90 grados en sentido horario necesarios para obtener una imagen en la que la desviación de la dirección "arriba" respecto a la vertical sea mínima.
-
-La siguiente figura contiene fotogramas tomados de una cámara no rotada, luego de una rotada 90 grados en sentido horario, y luego de una rotada 90 grados en sentido antihorario. Las flechas muestran la dirección hacia el "verdadero arriba".
-
-
-La siguiente figura muestra un giro de 90 grados en sentido horario por el hardware FPGA.
-
+To prove his love, he must check whether it is possible to rearrange the letters of string 
+s
+s so that it becomes her name 
+t
+t.
 
 Input
-La única línea de la entrada contiene un entero x
- (−1018≤x≤1018
-) — ángulo de la cámara en grados. Un valor positivo denota rotación de la cámara en sentido horario, negativo — en sentido antihorario.
+The first line contains an integer 
+q
+q (
+1
+≤
+q
+≤
+1000
+1≤q≤1000) — the number of test cases.
+
+The first line of each test case contains an integer 
+n
+n (
+1
+≤
+n
+≤
+20
+1≤n≤20).
+
+The second line of each test case contains two distinct strings 
+s
+s and 
+t
+t, each consisting of 
+n
+n lowercase Latin letters.
 
 Output
-Imprime un entero — el número mínimo requerido de giros de 90 grados en sentido horario.
+For each test case, output "YES" if the letters of 
+s
+s can be arranged to form 
+t
+t; otherwise, output "NO".
+
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes" and "YES" will be recognized as positive responses.
 
 Examples
-InputСкопировать
-60
-OutputСкопировать
-1
-InputСкопировать
--60
-OutputСкопировать
-3
+Inputcopy	Outputcopy
+5
+7
+humitsa mitsuha
+4
+orhi hori
+6
+aakima makima
+6
+nezuqo nezuko
+6
+misaka mikasa
+YES
+YES
+NO
+NO
+YES
 Note
-Cuando la cámara se rota 60
- grados en sentido antihorario (el segundo ejemplo), una imagen de ella se rota 60
- grados en sentido horario. Un giro de 90
- grados en sentido horario de la imagen resulta en una rotación total de 150
- grados en sentido horario y la desviación del "verdadero arriba" para un giro es de 150
- grados. Dos giros de 90
- grados en sentido horario de la imagen resultan en una rotación total de 240
- grados en sentido horario y la desviación del "verdadero arriba" para dos giros es de 120
- grados porque 240
- grados en sentido horario equivalen a 120
- grados en sentido antihorario. Tres giros de 90
- grados en sentido horario de la imagen resultan en una rotación total de 330
- grados en sentido horario y la desviación del "verdadero arriba" para tres giros es de 30
- grados porque 330
- grados en sentido horario equivalen a 30
- grados en sentido antihorario.
+In the first example, the initial string is "humitsa", and the following operations can be performed:
 
-De las desviaciones 60
-, 150
-, 120
- y 30
- grados, la menor es 30
-, y se logra en tres giros de 90
- grados en sentido horario.
+swap the first and third characters, resulting in "muhitsa"
+swap the second and fourth characters, resulting in "mihutsa"
+swap the third and fifth characters, resulting in "mithusa"
+swap the fourth and sixth characters, resulting in "mitsuha"
+In the second example, the initial string is "orhi", and the following operations can be performed:
 
+swap the second and third characters, resulting in "ohri"
+swap the first and second characters, resulting in "hori"

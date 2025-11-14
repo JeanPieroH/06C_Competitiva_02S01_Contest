@@ -1,41 +1,28 @@
-E. la hexa
-time limit per test0.5 s.
-memory limit per test64 MB
-Desarrollando herramientas para la creación de mapas de ubicaciones para peleas por turnos en un nuevo juego, Petya se enfrentó al siguiente problema.
+Tienes una cadena s = s1s2...s|s|, donde |s| es la longitud de la cadena s, y si es su i-ésimo carácter.
 
-Un mapa de campo consiste en celdas hexagonales. Dado que los tamaños de las ubicaciones van a ser grandes, un diseñador de juegos quiere tener una herramienta para rellenar rápidamente una parte del campo con unidades enemigas idénticas. Esta acción se verá de la siguiente manera: un diseñador de juegos seleccionará un área rectangular en el mapa, y cada celda cuyo centro pertenezca al rectángulo seleccionado será rellenada con la unidad enemiga.
+Vamos a definir algunos conceptos:
 
-Más formalmente, si un diseñador de juegos seleccionó celdas con coordenadas (x1,y1)
- y (x2,y2)
-, donde x1≤x2
- e y1≤y2
-, entonces todas las celdas con coordenadas de centro (x,y)
- tales que x1≤x≤x2
- e y1≤y≤y2
- serán rellenadas. El sistema de coordenadas ortogonales está configurado de modo que uno de los lados de la celda es paralelo al eje OX
-, todos los centros de los hexágonos tienen coordenadas enteras y para cada entero x
- hay celdas con centro en tal coordenada x
- y para cada entero y
- hay celdas con centro en tal coordenada y
-. Se garantiza que la diferencia x2−x1
- es divisible por 2
-.
+Un substring s[i..j] (1 ≤ i ≤ j ≤ |s|) de la cadena s es la cadena sisi + 1...sj.
+El prefijo de la cadena s de longitud l (1 ≤ l ≤ |s|) es la cadena s[1..l].
+El sufijo de la cadena s de longitud l (1 ≤ l ≤ |s|) es la cadena s[|s| - l + 1..|s|].
+Tu misión, si decides aceptarla, es que para cada prefijo de la cadena s que coincida con un sufijo de la cadena s, imprimas cuántas veces aparece como substring dentro de la cadena s.
 
-Trabajando en el problema, Petya decidió que antes de pintar las unidades seleccionadas quiere imprimir el número de unidades que serán pintadas en el mapa.
+Entrada
+La única línea contiene una secuencia de caracteres s1s2...s|s| (1 ≤ |s| ≤ 105) — la cadena s. La cadena solo contiene letras mayúsculas del alfabeto inglés.
 
-Ayúdalo a implementar el conteo de estas unidades antes de pintar.
+Salida
+En la primera línea, imprime un entero k (0 ≤ k ≤ |s|) — la cantidad de prefijos que coinciden con un sufijo de la cadena s. Luego, imprime k líneas, cada una con dos enteros li ci. Los números li ci indican que el prefijo de longitud li coincide con el sufijo de longitud li y aparece en la cadena s como substring ci veces. Imprime los pares li ci en orden creciente según li.
 
-
-Input
-La única línea de entrada contiene cuatro enteros x1,y1,x2,y2
- (−109≤x1≤x2≤109,−109≤y1≤y2≤109
-) — las coordenadas de los centros de dos celdas.
-
-Output
-Imprime un entero — el número de celdas a ser rellenadas.
-
-Examples
-InputСкопировать
-1 1 5 5
-OutputСкопировать
-13
+Ejemplos
+Inputcopy	Outputcopy
+ABACABA
+3
+1 4
+3 2
+7 1
+Inputcopy	Outputcopy
+AAA
+3
+1 3
+2 2
+3 1

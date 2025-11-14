@@ -1,51 +1,29 @@
-B. coins
-time limit per test2 s.
-memory limit per test256 MB
-Alice y Bob juegan un juego. Hay una tira de papel dividida en n+1
- casillas numeradas de izquierda a derecha comenzando desde 0
-. Hay una ficha colocada en la n
--ésima casilla (la última).
+Dado un string y un patrón, tu tarea es contar el número de posiciones donde el patrón ocurre en el string.
 
-Los jugadores toman turnos, Alice empieza primero. Cada jugador durante su turno tiene que mover la ficha 1
-, 2
- o k
- casillas a la izquierda (así que, si la ficha está actualmente en la casilla i
-, el jugador puede moverla a la casilla i−1
-, i−2
- o i−k
-). La ficha no debe salirse de los bordes de la tira de papel: es imposible, por ejemplo, moverla k
- casillas a la izquierda si la casilla actual tiene el número i<k
-. El jugador que no puede hacer un movimiento pierde el juego.
+Entrada
+La primera línea de entrada tiene un string de longitud 
+n
+n, y la segunda línea de entrada tiene un patrón de longitud 
+m
+m. Ambos consisten de caracteres a-z.
 
-¿Quién gana si ambos participantes juegan óptimamente?
+Salida
+Imprime un entero: el número de ocurrencias.
 
-A Alice y Bob les gustaría jugar varios juegos, así que debes determinar el ganador en cada juego.
-
-Input
-La primera línea contiene un único entero T
- (1≤T≤100
-) — el número de juegos. Las siguientes T
- líneas contienen un juego por línea. Todos los juegos son independientes.
-
-Cada una de las siguientes T
- líneas contiene dos enteros n
- y k
- (0≤n≤109
-, 3≤k≤109
-) — la longitud de la tira y la constante que denota el tercer movimiento, respectivamente.
-
-Output
-Para cada juego, imprime Alice si Alice gana este juego y Bob en caso contrario.
-
-Example
-InputСкопировать
-4
-0 3
-3 3
-3 4
-4 4
-OutputСкопировать
-Bob
-Alice
-Bob
-Alice
+Restricciones
+1
+≤
+n
+,
+m
+≤
+10
+6
+1≤n,m≤10 
+6
+ 
+Ejemplo
+Inputcopy	Outputcopy
+saippuakauppias
+pp
+2
