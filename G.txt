@@ -1,76 +1,180 @@
-G. Monocarp's String
-time limit per test2 seconds
-memory limit per test256 megabytes
-Monocarp has a string s
- of length n
-, consisting of the letters 'a' and 'b'. He wants to remove some (possibly zero) number of consecutive letters from his string in such a way that the number of letters 'a' and 'b' in the resulting string becomes equal. Monocarp can start removing letters from any position in the string s
-.
+Satyam is given 
+n
+n distinct points on the 2D coordinate plane. It is guaranteed that 
+0
+≤
+y
+i
+≤
+1
+0≤y 
+i
+​
+ ≤1 for all given points 
+(
+x
+i
+,
+y
+i
+)
+(x 
+i
+​
+ ,y 
+i
+​
+ ). How many different nondegenerate right triangles
+∗
+∗
+  can be formed from choosing three different points as its vertices?
 
-Monocarp really likes his string s
-, so he wants to remove as few consecutive letters from it as possible.
+Two triangles 
+a
+a and 
+b
+b are different if there is a point 
+v
+v such that 
+v
+v is a vertex of 
+a
+a but not a vertex of 
+b
+b.
 
-Your task is to determine the minimum number of consecutive letters from the string s
- that need to be removed so that the number of letters 'a' and 'b' in the resulting string becomes equal. If it is necessary to remove all letters from the string s
- (i.e., make it empty), report this.
+∗
+∗
+ A nondegenerate right triangle has positive area and an interior 
+90
+∘
+90 
+∘
+  angle.
 
 Input
-The first line contains one integer t
- (1≤t≤104
-) — the number of test cases.
+The first line contains an integer 
+t
+t (
+1
+≤
+t
+≤
+10
+4
+1≤t≤10 
+4
+ ) — the number of test cases.
 
-Each test case consists of two lines:
+The first line of each test case contains an integer 
+n
+n (
+3
+≤
+n
+≤
+2
+⋅
+10
+5
+3≤n≤2⋅10 
+5
+ ) — the number of points.
 
-the first line contains one integer n
- (2≤n≤2⋅105
-) — the number of characters in the string s
-;
-the second line contains the string s
- of length n
-, consisting of the letters 'a' and/or 'b'.
-Additional constraint on the input: the sum of values of n
- over all test cases does not exceed 2⋅105
-.
+The following 
+n
+n lines contain two integers 
+x
+i
+x 
+i
+​
+  and 
+y
+i
+y 
+i
+​
+  (
+0
+≤
+x
+i
+≤
+n
+0≤x 
+i
+​
+ ≤n, 
+0
+≤
+y
+i
+≤
+1
+0≤y 
+i
+​
+ ≤1) — the 
+i
+i'th point that Satyam can choose from. It is guaranteed that all 
+(
+x
+i
+,
+y
+i
+)
+(x 
+i
+​
+ ,y 
+i
+​
+ ) are pairwise distinct.
+
+It is guaranteed that the sum of 
+n
+n over all test cases does not exceed 
+2
+⋅
+10
+5
+2⋅10 
+5
+ .
 
 Output
-For each test case, print the answer as follows:
+Output an integer for each test case, the number of distinct nondegenerate right triangles that can be formed from choosing three points.
 
-If in order to make the number of letters 'a' and 'b' equal, it is necessary to remove all letters from the string s
-, output −1
-.
-
-Otherwise, output the minimum number of consecutive letters that Monocarp needs to remove from his string s
- so that the number of letters 'a' and 'b' becomes equal.
-
-Example
-InputCopy
-5
-5
-bbbab
-6
-bbaaba
-4
-aaaa
-12
-aabbaaabbaab
-5
-aabaa
-OutputCopy
+Examples
+Inputcopy	
 3
+5
+1 0
+1 1
+3 0
+5 0
+2 1
+3
+0 0
+1 0
+3 0
+9
+1 0
+2 0
+3 0
+4 0
+5 0
+2 1
+7 1
+8 1
+9 1
+
+Outputcopy
+4
 0
--1
-2
--1
+8
 Note
-In the first example, Monocarp needs to remove the first three letters from his string. After that, his string will become "ab". In this string, there is one letter 'a' and one letter 'b'.
-
-In the second example, the given string has three letters 'a' and three letters 'b', so nothing needs to be removed.
-
-In the third example, all letters of the string need to be removed, as there are no letters 'b', so −1
- should be printed.
-
-In the fourth example, Monocarp can, for example, remove the fifth and sixth letters from his string. Then his string will become "aabbabbaab". In this string, there are five letters 'a' and five letters 'b'.
-
-In the fifth example, all letters of the string need to be removed to make the number of letters 'a' and 'b' equal, so −1
- should be printed.
-
+The four triangles in question for the first test case:
 
