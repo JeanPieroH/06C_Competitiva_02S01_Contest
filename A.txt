@@ -1,102 +1,70 @@
-You have been hired by a big theme park to design a new attraction: a white water rafting ride. You already designed the track; it is a round trip that is described by an inner and an outer polygon. The space in between the two polygons is the track.
+A. <-space->
+time limit per test1.5 s.
+memory limit per test256 MB
+Has estado mirando la pantalla de tu computadora durante demasiado tiempo; es hora de darle un descanso e ir a tocar pasto.
 
-You still need to design the rafts, however. It has been decided that they should be circular, so that they can spin freely along the track and increase the fun and excitement of the ride. Besides that, they should be as big as possible to fit the maximum number of people, but they can’t be too big, for otherwise they would get stuck somewhere on the track.
+Tu pantalla es una línea de longitud a
+, y hay n
+ pestañas mostradas en ella. Quieres cerrar todas las pestañas haciendo clic en las x en su extremo derecho.
 
-What is the maximum radius of the rafts so that they can complete the track?
+Cada pestaña es un segmento de longitud len=min(b,am)
+, donde m
+ es el número de pestañas restantes. Las pestañas siempre están dispuestas de forma compacta en secuencia desde el extremo izquierdo de la pantalla; es decir, las x estarán a len,2⋅len,3⋅len,…,m⋅len
+ unidades de distancia del extremo izquierdo. Por favor, ten en cuenta que la longitud de cada pestaña cambiará a medida que vas cerrando pestañas.
+
+Ahora tu cursor está en el extremo izquierdo de la pantalla. Te preguntas cuál es el número mínimo de veces que necesitas mover el mouse para cerrar todas las pestañas.
+
+Si tienes dificultades para entender el enunciado, también puedes consultar la pestaña de tu navegador para una visualización, o haz clic aquí.
 
 Input
-On the first line one positive number: the number of testcases, at most 100. After that per testcase:
+Cada prueba contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba t
+ (1≤t≤104
+). A continuación sigue la descripción de los casos de prueba.
 
-One line with an integer 
-n
-i
-n 
-i
-​
-  (
-3
-≤
-n
-i
-≤
-100
-3≤n 
-i
-​
- ≤100): the number of points of the inner polygon.
-
-n
-i
-n 
-i
-​
-  lines with two integers each: the coordinates of the points of the inner polygon in consecutive order.
-
-One line with an integer 
-n
-o
-n 
-o
-​
-  (
-3
-≤
-n
-o
-≤
-100
-3≤n 
-o
-​
- ≤100): the number of points of the outer polygon.
-
-n
-o
-n 
-o
-​
-  lines with two integers each: the coordinates of the points of the outer polygon in consecutive order.
-
-All coordinates have absolute value no larger than 
-1
-000
-1000. The points of the polygons can be given in either clockwise or counterclockwise order and the two polygons do not intersect or touch themselves or each other. The outer polygon encloses the inner polygon.
+Cada caso de prueba es una línea con tres enteros a
+, b
+, y n
+ (1≤b≤a≤109
+, 1≤n≤109
+).
 
 Output
-Per testcase:
+Para cada caso de prueba, imprime un único entero — el número mínimo de veces que necesitas mover el mouse para cerrar todas las pestañas.
 
-One line with a floating point number: the maximal radius of the white water rafts. This number must have a relative or absolute error less than 
-10
-−
-6
-10 
-−6
- .
-
-Sample 1
-Inputcopy	
+Example
+InputCopy
+12
+8 1 6
+9 6 2
+10 3 1
+10 1 10
+9 2 1
+5 5 6
+6 2 7
+9 1 9
+3 2 6
+8 1 7
+8 1 9
+8 2 4
+OutputCopy
+1
 2
-4
--5 -5
-5 -5
-5 5
--5 5
-4
--10 -10
--10 10
-10 10
-10 -10
-3
-0 0
-1 0
-1 1
-5
-3 -3
-3 3
--4 2
--1 -1
--2 -2
+1
+1
+1
+1
+2
+1
+2
+1
+2
+1
+Note
+En el primer caso de prueba, un posible curso de acción es mover tu cursor a 1
+ y presionar 6
+ veces.
 
-Outputcopy
-2.5
-0.70710678
+En el segundo caso de prueba, un posible curso de acción es mover tu cursor a 4.5
+ y presionar una vez, luego moverlo a 6
+ y presionar de nuevo. Se puede demostrar que las pestañas no se pueden cerrar con menos de 2
+ movimientos.

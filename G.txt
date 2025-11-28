@@ -1,180 +1,101 @@
-Satyam is given 
-n
-n distinct points on the 2D coordinate plane. It is guaranteed that 
-0
-≤
-y
-i
-≤
-1
-0≤y 
-i
-​
- ≤1 for all given points 
-(
-x
-i
-,
-y
-i
-)
-(x 
-i
-​
- ,y 
-i
-​
- ). How many different nondegenerate right triangles
-∗
-∗
-  can be formed from choosing three different points as its vertices?
+G. Triangulización
+time limit per test2 s.
+memory limit per test256 MB
+Considera un triángulo infinito formado por capas. Enumeremos las capas, comenzando desde uno, desde la parte superior del triángulo (de arriba a abajo). La k
+-ésima capa del triángulo contiene k
+ puntos, numerados de izquierda a derecha. Cada punto de un triángulo infinito se describe mediante un par de números (r,c)
+ (1≤c≤r
+), donde r
+ es el número de la capa, y c
+ es el número del punto en la capa. Desde cada punto (r,c)
+ hay dos aristas dirigidas hacia los puntos (r+1,c)
+ y (r+1,c+1)
+, pero solo una de las aristas está activada. Si r+c
+ es par, entonces la arista hacia el punto (r+1,c)
+ está activada, de lo contrario la arista hacia el punto (r+1,c+1)
+ está activada. Mira la imagen para una mejor comprensión.
 
-Two triangles 
-a
-a and 
-b
-b are different if there is a point 
-v
-v such that 
-v
-v is a vertex of 
-a
-a but not a vertex of 
-b
-b.
+Las aristas activadas están coloreadas en negro. Las aristas no activadas están coloreadas en gris.
+Desde el punto (r1,c1)
+ es posible llegar al punto (r2,c2)
+, si existe un camino entre ellos solo de aristas activadas. Por ejemplo, en la imagen de arriba, hay un camino desde (1,1)
+ a (3,2)
+, pero no hay un camino desde (2,1)
+ a (1,1)
+.
 
-∗
-∗
- A nondegenerate right triangle has positive area and an interior 
-90
-∘
-90 
-∘
-  angle.
+Inicialmente, estás en el punto (1,1)
+. En cada turno, puedes:
+
+Reemplazar la arista activada para el punto (r,c)
+. Es decir, si la arista hacia el punto (r+1,c)
+ está activada, entonces en lugar de ella, la arista hacia el punto (r+1,c+1)
+ se activa; de lo contrario, si la arista hacia el punto (r+1,c+1)
+ está activada, entonces en lugar de ella, la arista hacia el punto (r+1,c)
+ se activa. Esta acción aumenta el costo del camino en 1
+;
+Moverte desde el punto actual a otro siguiendo la arista activada. Esta acción no aumenta el costo del camino.
+Se te da una secuencia de n
+ puntos de un triángulo infinito (r1,c1),(r2,c2),…,(rn,cn)
+. Encuentra el camino de costo mínimo desde (1,1)
+, pasando por todos los n
+ puntos en orden arbitrario.
 
 Input
-The first line contains an integer 
-t
-t (
-1
-≤
-t
-≤
-10
-4
-1≤t≤10 
-4
- ) — the number of test cases.
+La primera línea contiene un entero t
+ (1≤t≤104
+) que es el número de casos de prueba. Luego siguen t
+ casos de prueba.
 
-The first line of each test case contains an integer 
-n
-n (
-3
-≤
-n
-≤
-2
-⋅
-10
-5
-3≤n≤2⋅10 
-5
- ) — the number of points.
+Cada caso de prueba comienza con una línea que contiene un entero n
+ (1≤n≤2⋅105
+) que es el número de puntos a visitar.
 
-The following 
-n
-n lines contain two integers 
-x
-i
-x 
-i
-​
-  and 
-y
-i
-y 
-i
-​
-  (
-0
-≤
-x
-i
-≤
-n
-0≤x 
-i
-​
- ≤n, 
-0
-≤
-y
-i
-≤
-1
-0≤y 
-i
-​
- ≤1) — the 
-i
-i'th point that Satyam can choose from. It is guaranteed that all 
-(
-x
-i
-,
-y
-i
-)
-(x 
-i
-​
- ,y 
-i
-​
- ) are pairwise distinct.
+La segunda línea contiene n
+ números r1,r2,…,rn
+ (1≤ri≤109
+), donde ri
+ es el número de la capa en la cual se encuentra el i
+-ésimo punto.
 
-It is guaranteed that the sum of 
-n
-n over all test cases does not exceed 
-2
-⋅
-10
-5
-2⋅10 
-5
- .
+La tercera línea contiene n
+ números c1,c2,…,cn
+ (1≤ci≤ri
+), donde ci
+ es el número del i
+-ésimo punto en la capa ri
+.
+
+Se garantiza que todos los n
+ puntos son distintos.
+
+Se garantiza que siempre hay al menos una forma de recorrer todos los n
+ puntos.
+
+Se garantiza que la suma de n
+ en todos los casos de prueba no excede 2⋅105
+.
 
 Output
-Output an integer for each test case, the number of distinct nondegenerate right triangles that can be formed from choosing three points.
+Para cada caso de prueba, imprime el costo mínimo de un camino que pase por todos los puntos en el caso de prueba correspondiente.
 
-Examples
-Inputcopy	
-3
-5
-1 0
-1 1
-3 0
-5 0
-2 1
-3
-0 0
-1 0
-3 0
-9
-1 0
-2 0
-3 0
-4 0
-5 0
-2 1
-7 1
-8 1
-9 1
-
-Outputcopy
+Example
+InputCopy
 4
+3
+1 4 2
+1 3 1
+2
+2 4
+2 3
+2
+1 1000000000
+1 1000000000
+4
+3 10 5 8
+2 5 2 4
+OutputCopy
 0
-8
-Note
-The four triangles in question for the first test case:
-
+1
+999999999
+2

@@ -1,62 +1,72 @@
-You are developing software for a new generation of robotic floor vacuums. Being an inexpensive, mass market robot, this device has a fairly simple way of navigating around the room. It can turn by some angle to the left or right and then move forward in a straight line. A plan for the robot consists of a sequence of these straight-line segments. The robot starts at the origin, facing in the positive 
-Y
-Y direction. Your job is to try to predict where the robot will be after following a plan.
+F. Bita
+time limit per test2 s.
+memory limit per test256 MB
+Xenia, la programadora principiante, tiene una secuencia a
+, que consiste en 2n
+ enteros no negativos: a1,a2,…,a2n
+. Xenia está estudiando actualmente operaciones de bits. Para entender mejor cómo funcionan, Xenia decidió calcular un cierto valor v
+ para a
+.
 
-\includegraphics[width=0.5\textwidth ]{path}
+Concretamente, toma varias iteraciones calcular el valor v
+. En la primera iteración, Xenia escribe una nueva secuencia a1 or a2,a3 or a4,…,a2n−1 or a2n
+, que consiste en 2n−1
+ elementos. En otras palabras, ella escribe el OR a nivel de bits de elementos adyacentes de la secuencia a
+. En la segunda iteración, Xenia escribe el OR exclusivo a nivel de bits de elementos adyacentes de la secuencia obtenida después de la primera iteración. En la tercera iteración, Xenia escribe el OR a nivel de bits de los elementos adyacentes de la secuencia obtenida después de la segunda iteración. Y así sucesivamente; las operaciones de OR exclusivo a nivel de bits y OR a nivel de bits se alternan. Al final, ella obtiene una secuencia que consiste en un elemento, y ese elemento es v
+.
+
+Consideremos un ejemplo. Supongamos que la secuencia a=(1,2,3,4)
+. Entonces escribamos todas las transformaciones (1,2,3,4)
+ →
+ (1 or 2=3,3 or 4=7)
+ →
+ (3 xor 7=4)
+. El resultado es v=4
+.
+
+Se te da la secuencia inicial de Xenia. Pero calcular el valor v
+ para una secuencia dada sería demasiado fácil, así que se te dan m
+ consultas adicionales. Cada consulta es un par de enteros p,b
+. La consulta p,b
+ significa que necesitas realizar la asignación ap=b
+. Después de cada consulta, necesitas imprimir el nuevo valor v
+ para la nueva secuencia a
+.
+
 Input
-Input consists of several test cases. The first line contains an integer 
-1
-≤
-n
-≤
-25
-1≤n≤25 telling how many. Each of the following test cases begins with an integer, 
-1
-≤
-m
-≤
-10
-1≤m≤10, giving the number of segments in the robot’s plan. This is followed by 
-m
-m lines, each describing a segment in the plan. Each segment is described by a pair of real numbers, a rotation angle in degrees followed by a distance. The angle is in the range 
-[
-−
-360
-,
-360
-]
-[−360,360] and the distance is in the range 
-[
-−
-100
-,
-100
-]
-[−100,100]. The rotation angle tells how much the robot should turn before moving forward the given distance. A positive rotation angle indicates a counter-clockwise turn. A negative angle indicates a clockwise turn. All real numbers have at most 
-8
-8 digits past the decimal.
+La primera línea contiene dos enteros n
+ y m
+ (1≤n≤17,1≤m≤105)
+. La siguiente línea contiene 2n
+ enteros a1,a2,…,a2n
+ (0≤ai<230)
+. Cada una de las siguientes m
+ líneas contiene consultas. La i
+-ésima línea contiene los enteros pi,bi
+ (1≤pi≤2n,0≤bi<230)
+ — la i
+-ésima consulta.
 
 Output
-For each test case, print out the expected 
-X
-Y
-XY location of the robot after following the path. Your answer should be accurate to within 
-10
-−
-3
-10 
-−3
-  for each coordinate.
+Imprime m
+ enteros — el i
+-ésimo entero denota el valor v
+ para la secuencia a
+ después de la i
+-ésima consulta.
 
-Sample 1
-Inputcopy	
-2
-2
-0 10.5
-90 5
+Examples
+InputCopy
+2 4
+1 6 3 5
+1 4
+3 4
+1 2
+1 2
+OutputCopy
 1
--45 10
-
-Outputcopy
--5.000000 10.500000
-7.071068 7.071068
+3
+3
+3
+Note
+Para más información sobre las operaciones de bits, puedes seguir este enlace: http://en.wikipedia.org/wiki/Bitwise_operation

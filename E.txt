@@ -1,95 +1,67 @@
-The small sawmill in Mission, British Columbia, has developed a brand new way of packaging boards for drying. By fixating the boards in special moulds, the board can dry efficiently in a drying room.
+E. Asha y el oso
+time limit per test1 s.
+memory limit per test256 MB
+Un hermoso día Vasily el oso pintó 2m
+ círculos del mismo radio R
+ en un plano de coordenadas. Los círculos con números del 1
+ al m
+ tenían sus centros en los puntos (2R−R,0)
+, (4R−R,0)
+, …
+, (2Rm−R,0)
+, respectivamente. Los círculos con números del m+1
+ al 2m
+ tenían sus centros en los puntos (2R−R,2R)
+, (4R−R,2R)
+, …
+, (2Rm−R,2R)
+, respectivamente.
 
-Space is an issue though. The boards cannot be too close, because then the drying will be too slow. On the other hand, one wants to use the drying room efficiently.
+Naturalmente, el oso pintó los círculos para un experimento simple con una mosca. El experimento continuó durante m2
+ días. Cada día del experimento obtuvo su propio número único de 0
+ a m2−1
+, inclusive.
 
-Looking at it from a 2-D perspective, your task is to calculate the fraction between the space occupied by the boards to the total space occupied by the mould. Now, the mould is surrounded by an aluminium frame of negligible thickness, following the hull of the boards’ corners tightly. The space occupied by the mould would thus be the interior of the frame.
+En el día número i
+ sucedieron las siguientes cosas:
+
+La mosca llegó al plano de coordenadas en el centro del círculo con número v=⌊im⌋+1
+ (⌊xy⌋
+ es el resultado de dividir el número x
+ por el número y
+, redondeado hacia abajo a un entero).
+La mosca fue a lo largo del plano de coordenadas hacia el centro del círculo número u=m+1+(imodm)
+ (xmody
+ es el resto después de dividir el número x
+ por el número y
+). El oso notó que la mosca fue desde el centro del círculo v
+ hasta el centro del círculo u
+ a lo largo del camino más corto con todos los puntos yaciendo en el borde o dentro de al menos uno de los 2m
+ círculos. Después de que la mosca alcanzó el centro del círculo u
+, voló en una dirección desconocida.
+Ayuda a Vasily, cuenta la distancia promedio que la mosca recorrió a lo largo del plano de coordenadas durante cada uno de estos m2
+ días.
 
 Input
-On the first line of input there is one integer, 
-N
-≤
-50
-N≤50, giving the number of test cases (moulds) in the input. After this line, 
-N
-N test cases follow. Each test case starts with a line containing one integer 
-n
-n, 
-1
-≤
-n
-≤
-600
-1≤n≤600, which is the number of boards in the mould. Then 
-n
-n lines follow, each with five floating point numbers 
-x
-,
-y
-,
-w
-,
-h
-,
-v
-x,y,w,h,v where 
-0
-≤
-x
-,
-y
-,
-w
-,
-h
-≤
-10
-000
-0≤x,y,w,h≤10000 and 
-−
-90
-∘
-<
-v
-≤
-90
-∘
-−90 
-∘
- <v≤90 
-∘
- . The 
-x
-x and 
-y
-y are the coordinates of the center of the board and 
-w
-w and 
-h
-h are the width and height of the board, respectively. 
-v
-v is the angle between the height axis of the board to the 
-y
-y-axis in degrees, positive clockwise. That is, if 
-v
-=
-0
-v=0, the projection of the board on the 
-x
-x-axis would be 
-w
-w. Of course, the boards cannot intersect.
+La primera línea contiene dos enteros m,R
+ (1≤m≤105
+, 1≤R≤10
+).
 
 Output
-For every test case, output one line containing the fraction of the space occupied by the boards to the total space in percent. Your output should have one decimal digit and be followed by a space and a percent sign (%).
+En una única línea imprime un único número real — la respuesta al problema. La respuesta será considerada correcta si su error absoluto o relativo no excede 10−6
+.
 
-Sample 1
-Inputcopy	
-1
-4
-4 7.5 6 3 0
-8 11.5 6 3 0
-9.5 6 6 3 90
-4.5 3 4.4721 2.2361 26.565
+Examples
+InputCopy
+1 1
+OutputCopy
+2.0000000000
+InputCopy
+2 2
+OutputCopy
+5.4142135624
+Note
 
-Outputcopy
-64.3 %
+
+Figura para la segunda muestra

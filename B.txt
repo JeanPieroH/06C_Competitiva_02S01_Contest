@@ -1,40 +1,65 @@
-Crazy Town is a plane on which there are n infinite line roads. Each road is defined by the equation aix + biy + ci = 0, where ai and bi are not both equal to the zero. The roads divide the plane into connected regions, possibly of infinite space. Let's call each such region a block. We define an intersection as the point where at least two different roads intersect.
+B. A44
+time limit per test1 s.
+memory limit per test256 MB
+Hay una hoja de papel blanca sobre una mesa rectangular. La hoja es un rectángulo con sus lados paralelos a los lados de la mesa. Si miras desde arriba y asumes que la esquina inferior izquierda de la mesa tiene coordenadas (0,0)
+, y los ejes de coordenadas son los lados izquierdo e inferior de la mesa, entonces la esquina inferior izquierda de la hoja blanca tiene coordenadas (x1,y1)
+, y la superior derecha — (x2,y2)
+.
 
-Your home is located in one of the blocks. Today you need to get to the University, also located in some block. In one step you can move from one block to another, if the length of their common border is nonzero (in particular, this means that if the blocks are adjacent to one intersection, but have no shared nonzero boundary segment, then it are not allowed to move from one to another one in one step).
+Después de eso, se colocan dos hojas de papel negras sobre la mesa. Los lados de ambas hojas negras también son paralelos a los lados de la mesa. Las coordenadas de la esquina inferior izquierda de la primera hoja negra son (x3,y3)
+, y la superior derecha — (x4,y4)
+. Las coordenadas de la esquina inferior izquierda de la segunda hoja negra son (x5,y5)
+, y la superior derecha — (x6,y6)
+.
 
-Determine what is the minimum number of steps you have to perform to get to the block containing the university. It is guaranteed that neither your home nor the university is located on the road.
+Ejemplo de tres rectángulos.
+Determina si alguna parte de la hoja blanca se puede ver desde arriba después de colocar las dos hojas negras. La parte de la hoja blanca se puede ver si hay al menos un punto que se encuentra no estrictamente dentro de la hoja blanca y estrictamente fuera de ambas hojas negras.
 
 Input
-The first line contains two space-separated integers x1, y1 ( - 106 ≤ x1, y1 ≤ 106) — the coordinates of your home.
+La primera línea de la entrada contiene cuatro enteros x1,y1,x2,y2
+ (0≤x1<x2≤106,0≤y1<y2≤106)
+ — coordenadas de las esquinas inferior izquierda y superior derecha de la hoja blanca.
 
-The second line contains two integers separated by a space x2, y2 ( - 106 ≤ x2, y2 ≤ 106) — the coordinates of the university you are studying at.
+La segunda línea de la entrada contiene cuatro enteros x3,y3,x4,y4
+ (0≤x3<x4≤106,0≤y3<y4≤106)
+ — coordenadas de las esquinas inferior izquierda y superior derecha de la primera hoja negra.
 
-The third line contains an integer n (1 ≤ n ≤ 300) — the number of roads in the city. The following n lines contain 3 space-separated integers ( - 106 ≤ ai, bi, ci ≤ 106; |ai| + |bi| > 0) — the coefficients of the line aix + biy + ci = 0, defining the i-th road. It is guaranteed that no two roads are the same. In addition, neither your home nor the university lie on the road (i.e. they do not belong to any one of the lines).
+La tercera línea de la entrada contiene cuatro enteros x5,y5,x6,y6
+ (0≤x5<x6≤106,0≤y5<y6≤106)
+ — coordenadas de las esquinas inferior izquierda y superior derecha de la segunda hoja negra.
+
+Los lados de cada hoja de papel son paralelos (perpendiculares) a los ejes de coordenadas.
 
 Output
-Output the answer to the problem.
+Si alguna parte de la hoja blanca se puede ver desde arriba después de colocar las dos hojas negras, imprime "YES" (sin comillas). De lo contrario, imprime "NO".
 
 Examples
-Inputcopy	
-1 1
--1 -1
-2
-0 1 0
-1 0 0
-
-Outputcopy
-2
-
-Inputcopy	
-1 1
--1 -1
-3
-1 0 0
-0 1 0
-1 1 -3
-
-Outputcopy
-2
+InputCopy
+2 2 4 4
+1 1 3 5
+3 1 5 5
+OutputCopy
+NO
+InputCopy
+3 3 7 5
+0 0 4 6
+0 0 7 4
+OutputCopy
+YES
+InputCopy
+5 2 10 5
+3 1 7 6
+8 1 11 7
+OutputCopy
+YES
+InputCopy
+0 0 1000000 1000000
+0 0 499999 1000000
+500000 0 1000000 1000000
+OutputCopy
+YES
 Note
-Pictures to the samples are presented below (A is the point representing the house; B is the point representing the university, different blocks are filled with different colors):
+En el primer ejemplo, la hoja blanca está totalmente cubierta por las hojas negras.
 
+En el segundo ejemplo, la parte de la hoja blanca se puede ver después de colocar las dos hojas negras. Por ejemplo, el punto (6.5,4.5)
+ se encuentra no estrictamente dentro de la hoja blanca y se encuentra estrictamente fuera de ambas hojas negras.

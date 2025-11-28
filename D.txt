@@ -1,210 +1,102 @@
-Guy-Manuel and Thomas are going to build a polygon spaceship.
-
-You're given a strictly convex (i. e. no three points are collinear) polygon 
-P
-P which is defined by coordinates of its vertices. Define 
-P
-(
-x
-,
-y
-)
-P(x,y) as a polygon obtained by translating 
-P
-P by vector 
-(
-x
-,
-y
-)
-→
-(x,y)
-​
- . The picture below depicts an example of the translation:
+D. Dorime
+time limit per test2 s.
+memory limit per test256 MB
+Hay n
+ velas en una menorá de Janucá, y algunas de sus velas están inicialmente encendidas. Podemos describir qué velas están encendidas con una cadena binaria s
+, donde la i
+-ésima vela está encendida si y solo si si=1
+.
 
 
+Inicialmente, las luces de las velas se describen mediante una cadena a
+. En una operación, seleccionas una vela que está actualmente encendida. Al hacerlo, la vela que seleccionaste permanecerá encendida, y cualquier otra vela cambiará (si estaba encendida, se apagará y si estaba apagada, se encenderá).
 
-Define 
-T
-T as a set of points which is the union of all 
-P
-(
-x
-,
-y
-)
-P(x,y) such that the origin 
-(
-0
-,
-0
-)
-(0,0) lies in 
-P
-(
-x
-,
-y
-)
-P(x,y) (both strictly inside and on the boundary). There is also an equivalent definition: a point 
-(
-x
-,
-y
-)
-(x,y) lies in 
-T
-T only if there are two points 
-A
-,
-B
-A,B in 
-P
-P such that 
-A
-B
-→
-=
-(
-x
-,
-y
-)
-→
-AB
- = 
-(x,y)
-​
- . One can prove 
-T
-T is a polygon too. For example, if 
-P
-P is a regular triangle then 
-T
-T is a regular hexagon. At the picture below 
-P
-P is drawn in black and some 
-P
-(
-x
-,
-y
-)
-P(x,y) which contain the origin are drawn in colored:
-
-
-
-The spaceship has the best aerodynamic performance if 
-P
-P and 
-T
-T are similar. Your task is to check whether the polygons 
-P
-P and 
-T
-T are similar.
+Te gustaría hacer que las velas se vean igual que la cadena b
+. Tu tarea es determinar si es posible, y si lo es, encontrar el número mínimo de operaciones requeridas.
 
 Input
-The first line of input will contain a single integer 
-n
-n (
-3
-≤
-n
-≤
-10
-5
-3≤n≤10 
-5
- ) — the number of points.
+La primera línea contiene un entero t
+ (1≤t≤104
+) — el número de casos de prueba. Luego siguen t
+ casos.
 
-The 
-i
-i-th of the next 
-n
-n lines contains two integers 
-x
-i
-,
-y
-i
-x 
-i
-​
- ,y 
-i
-​
-  (
-∣
-x
-i
-∣
-,
-∣
-y
-i
-∣
-≤
-10
-9
-∣x 
-i
-​
- ∣,∣y 
-i
-​
- ∣≤10 
-9
- ), denoting the coordinates of the 
-i
-i-th vertex.
+La primera línea de cada caso de prueba contiene un único entero n
+ (1≤n≤105
+) — el número de velas.
 
-It is guaranteed that these points are listed in counterclockwise order and these points form a strictly convex polygon.
+La segunda línea contiene una cadena a
+ de longitud n
+ que consiste en los símbolos 0 y 1 — el patrón inicial de luces.
+
+La tercera línea contiene una cadena b
+ de longitud n
+ que consiste en los símbolos 0 y 1 — el patrón deseado de luces.
+
+Se garantiza que la suma de n
+ no excede 105
+.
 
 Output
-Output "YES" in a separate line, if 
-P
-P and 
-T
-T are similar. Otherwise, output "NO" in a separate line. You can print each letter in any case (upper or lower).
+Para cada caso de prueba, imprime el número mínimo de operaciones requeridas para transformar a
+ en b
+, o −1
+ si es imposible.
 
-Examples
-Inputcopy	
-4
-1 0
-4 1
-3 4
-0 3
-
-Outputcopy
-YES
-
-Inputcopy	
+Example
+InputCopy
+5
+5
+11010
+11010
+2
+01
+11
 3
-100 86
-50 0
-150 0
-
-Outputcopy
-nO
-
-Inputcopy	
-8
-0 0
-1 0
-2 1
-3 3
-4 6
-3 6
-2 5
-1 3
-
-Outputcopy
-YES
-
+000
+101
+9
+100010111
+101101100
+9
+001011011
+011010101
+OutputCopy
+0
+1
+-1
+3
+4
 Note
-The following image shows the first sample: both 
-P
-P and 
-T
-T are squares. The second sample was shown in the statements.
+En el primer caso de prueba, las dos cadenas ya son iguales, así que no tenemos que realizar ninguna operación.
+
+En el segundo caso de prueba, podemos realizar una única operación seleccionando la segunda vela para transformar 01
+ en 11
+.
+
+En el tercer caso de prueba, es imposible realizar ninguna operación porque no hay velas encendidas para seleccionar.
+
+En el cuarto caso de prueba, podemos realizar las siguientes operaciones para transformar a
+ en b
+:
+
+Seleccionar la 7
+-a vela: 100010111→011101100
+.
+Seleccionar la 2
+-a vela: 011101100→110010011
+.
+Seleccionar la 1
+-a vela: 110010011→101101100
+.
+En el quinto caso de prueba, podemos realizar las siguientes operaciones para transformar a
+ en b
+:
+
+Seleccionar la 6
+-a vela: 001011011→110101100
+Seleccionar la 2
+-a vela: 110101100→011010011
+Seleccionar la 8
+-a vela: 011010011→100101110
+Seleccionar la 7
+-a vela: 100101110→011010101
