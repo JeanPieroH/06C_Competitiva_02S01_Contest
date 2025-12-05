@@ -1,72 +1,63 @@
-F. Bita
+F. pre-juicio
 time limit per test2 s.
-memory limit per test256 MB
-Xenia, la programadora principiante, tiene una secuencia a
-, que consiste en 2n
- enteros no negativos: a1,a2,…,a2n
-. Xenia está estudiando actualmente operaciones de bits. Para entender mejor cómo funcionan, Xenia decidió calcular un cierto valor v
- para a
-.
+memory limit per test1024 MB
+Los jueces del NWRRC crearon n
+ problemas sobre un tema similar y decidieron usarlos durante n
+ años consecutivos, un problema por año. La única pregunta era: ¿en qué orden deberían usarse?
 
-Concretamente, toma varias iteraciones calcular el valor v
-. En la primera iteración, Xenia escribe una nueva secuencia a1 or a2,a3 or a4,…,a2n−1 or a2n
-, que consiste en 2n−1
- elementos. En otras palabras, ella escribe el OR a nivel de bits de elementos adyacentes de la secuencia a
-. En la segunda iteración, Xenia escribe el OR exclusivo a nivel de bits de elementos adyacentes de la secuencia obtenida después de la primera iteración. En la tercera iteración, Xenia escribe el OR a nivel de bits de los elementos adyacentes de la secuencia obtenida después de la segunda iteración. Y así sucesivamente; las operaciones de OR exclusivo a nivel de bits y OR a nivel de bits se alternan. Al final, ella obtiene una secuencia que consiste en un elemento, y ese elemento es v
-.
+El nombre de cada problema consta de dos palabras. Llamemos a dos nombres similares si sus primeras palabras son iguales o sus segundas palabras son iguales. Por ejemplo, eight shaped y eight connected son similares, mientras que hello world y world hello no lo son.
 
-Consideremos un ejemplo. Supongamos que la secuencia a=(1,2,3,4)
-. Entonces escribamos todas las transformaciones (1,2,3,4)
- →
- (1 or 2=3,3 or 4=7)
- →
- (3 xor 7=4)
-. El resultado es v=4
-.
+Los jueces decidieron implementar la siguiente regla: en el primer año, eligieron un problema arbitrariamente. En cada año subsiguiente, si había un problema con un nombre similar al problema del año anterior que aún no se había usado, elegían uno de esos problemas; de lo contrario, elegían cualquier problema no usado.
 
-Se te da la secuencia inicial de Xenia. Pero calcular el valor v
- para una secuencia dada sería demasiado fácil, así que se te dan m
- consultas adicionales. Cada consulta es un par de enteros p,b
-. La consulta p,b
- significa que necesitas realizar la asignación ap=b
-. Después de cada consulta, necesitas imprimir el nuevo valor v
- para la nueva secuencia a
-.
+Se te dan los nombres de los problemas en orden cronológico de su uso. Determina si los jueces siguieron la regla correctamente o si cometieron un error.
 
 Input
-La primera línea contiene dos enteros n
- y m
- (1≤n≤17,1≤m≤105)
-. La siguiente línea contiene 2n
- enteros a1,a2,…,a2n
- (0≤ai<230)
-. Cada una de las siguientes m
- líneas contiene consultas. La i
--ésima línea contiene los enteros pi,bi
- (1≤pi≤2n,0≤bi<230)
- — la i
--ésima consulta.
+Cada prueba contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba t
+ (1≤t≤104
+). A continuación sigue la descripción de los casos de prueba.
+
+La primera línea de cada caso de prueba contiene un solo entero n
+, que denota el número de problemas (2≤n≤105
+).
+
+La i
+-ésima de las siguientes n
+ líneas contiene el nombre del i
+-ésimo problema en orden cronológico: dos palabras que constan de al menos 1
+ y como máximo 10
+ letras minúsculas en inglés cada una. Todos los nombres de problemas son distintos.
+
+Se garantiza que la suma de n
+ en todos los casos de prueba no excede 105
+.
 
 Output
-Imprime m
- enteros — el i
--ésimo entero denota el valor v
- para la secuencia a
- después de la i
--ésima consulta.
+Para cada caso de prueba, imprime "Yes" si los jueces siguieron la regla correctamente, y "No" en caso contrario.
 
-Examples
+Example
 InputCopy
-2 4
-1 6 3 5
-1 4
-3 4
-1 2
-1 2
+3
+4
+k shaped
+h shaped
+eight shaped
+eight connected
+3
+k shaped
+eight connected
+eight shaped
+4
+judging problem
+judging logic
+binary problem
+logic problem
 OutputCopy
-1
-3
-3
-3
+Yes
+No
+Yes
 Note
-Para más información sobre las operaciones de bits, puedes seguir este enlace: http://en.wikipedia.org/wiki/Bitwise_operation
+En el primer caso de prueba, cada nombre de problema subsiguiente es similar al anterior.
+
+En el segundo caso de prueba, los jueces deberían haber elegido "eight shaped" para el segundo año.
+
+En el tercer caso de prueba, ni "binary problem" ni "logic problem" son similares a "judging logic"; los jueces podrían haber elegido cualquiera de esos problemas para el tercer año.

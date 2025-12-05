@@ -1,0 +1,70 @@
+J. P-Tree
+time limit per test2 s.
+memory limit per test256 MB
+Se te da un árbol T
+ y un grafo simple no dirigido G
+. Tanto T
+ como G
+ tienen vértices numerados 1,2,…,N
+.
+
+Un par de vértices (u,v)
+ se llama bueno si el camino único entre u
+ y v
+ en el árbol T
+ es también un camino en G
+.
+
+Cuenta el número de pares buenos ordenados (u,v)
+.
+
+Ten en cuenta que (u,u)
+ se considera bueno para todo u
+ (el camino de longitud 0
+).
+
+Input
+La primera línea contiene dos enteros N
+ y M
+ (3≤N,M≤2⋅105)
+ — el número de vértices y aristas en G
+.
+
+Las siguientes N−1
+ líneas describen el árbol T
+. Cada línea contiene dos enteros ai,bi
+ (1≤ai,bi≤N)
+ — una arista de T
+.
+
+Las siguientes M
+ líneas describen el grafo G
+. Cada línea contiene dos enteros xi,yi
+ (1≤xi,yi≤N)
+ — una arista de G
+.
+
+Output
+Imprime un solo entero — el número de pares buenos ordenados (u,v)
+.
+
+Example
+InputCopy
+4 3
+1 2
+2 3
+3 4
+1 3
+3 2
+2 4
+OutputCopy
+6
+Note
+En el ejemplo, los pares buenos son (1,1),(2,2),(3,3),(4,4),(2,3),(3,2)
+. Por ejemplo, el par (1,4)
+ no es un par bueno porque el camino de 1 a 4 en T
+ es 1−2−3−4
+, mientras que en G
+ es 1−3−2−4
+, por lo que los caminos son diferentes.
+

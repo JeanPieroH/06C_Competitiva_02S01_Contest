@@ -1,65 +1,71 @@
-B. A44
-time limit per test1 s.
-memory limit per test256 MB
-Hay una hoja de papel blanca sobre una mesa rectangular. La hoja es un rectángulo con sus lados paralelos a los lados de la mesa. Si miras desde arriba y asumes que la esquina inferior izquierda de la mesa tiene coordenadas (0,0)
-, y los ejes de coordenadas son los lados izquierdo e inferior de la mesa, entonces la esquina inferior izquierda de la hoja blanca tiene coordenadas (x1,y1)
-, y la superior derecha — (x2,y2)
-.
+B. No huffman
+time limit per test2 s.
+memory limit per test1024 MB
+Los formatos binarios a menudo utilizan representaciones compactas para los enteros. Considera escribir un entero sin signo de 32 bits en un archivo: siempre debes reservar 4 bytes para representarlo (recuerda, 8 bits forman un byte). Sin embargo, en muchas aplicaciones de la vida real, los valores enteros tienden a ser pequeños. Escribir estos valores pequeños usando una representación fija de 4 bytes resulta en archivos que están mayormente llenos de bytes cero.
 
-Después de eso, se colocan dos hojas de papel negras sobre la mesa. Los lados de ambas hojas negras también son paralelos a los lados de la mesa. Las coordenadas de la esquina inferior izquierda de la primera hoja negra son (x3,y3)
-, y la superior derecha — (x4,y4)
-. Las coordenadas de la esquina inferior izquierda de la segunda hoja negra son (x5,y5)
-, y la superior derecha — (x6,y6)
-.
+Para hacer la representación más compacta, introducimos el siguiente esquema de codificación. Cada valor se representa como una secuencia de bytes b1,b2,…,bk
+, donde cada bi
+ es un entero entre 0
+ y 255
+, inclusive. El bit más significativo de cada byte sirve como una bandera de continuación, y los 7
+ bits inferiores llevan los datos reales. Si la bandera de continuación es 1
+, siguen más bytes; para el último byte, es 0
+. La representación es big-endian, lo que significa que b1
+ contiene los bits más significativos del valor codificado.
 
-Ejemplo de tres rectángulos.
-Determina si alguna parte de la hoja blanca se puede ver desde arriba después de colocar las dos hojas negras. La parte de la hoja blanca se puede ver si hay al menos un punto que se encuentra no estrictamente dentro de la hoja blanca y estrictamente fuera de ambas hojas negras.
+Por ejemplo, aquí se muestra cómo encontrar la representación compacta de n=112025
+. Primero, encontramos su representación binaria:
+
+112025=110110101100110012
+Luego, la dividimos en bloques de 7 bits, rellenando con ceros a la izquierda si es necesario:
+
+0000110
+ / 1101011
+ / 0011001
+Los primeros dos bloques tienen un bloque siguiente, por lo que los bytes correspondientes tienen su bit más significativo establecido en 1
+. El último bloque no tiene un bloque siguiente, por lo que su bit más significativo es 0
+. Esto nos da:
+
+b1=100001102=134
+b2=111010112=235
+b3=000110012=25
+Se te da un entero n
+, y tu tarea es encontrar su representación compacta.
 
 Input
-La primera línea de la entrada contiene cuatro enteros x1,y1,x2,y2
- (0≤x1<x2≤106,0≤y1<y2≤106)
- — coordenadas de las esquinas inferior izquierda y superior derecha de la hoja blanca.
-
-La segunda línea de la entrada contiene cuatro enteros x3,y3,x4,y4
- (0≤x3<x4≤106,0≤y3<y4≤106)
- — coordenadas de las esquinas inferior izquierda y superior derecha de la primera hoja negra.
-
-La tercera línea de la entrada contiene cuatro enteros x5,y5,x6,y6
- (0≤x5<x6≤106,0≤y5<y6≤106)
- — coordenadas de las esquinas inferior izquierda y superior derecha de la segunda hoja negra.
-
-Los lados de cada hoja de papel son paralelos (perpendiculares) a los ejes de coordenadas.
+La única línea contiene un solo entero n
+ (0≤n≤231−1
+).
 
 Output
-Si alguna parte de la hoja blanca se puede ver desde arriba después de colocar las dos hojas negras, imprime "YES" (sin comillas). De lo contrario, imprime "NO".
+Imprime una secuencia de enteros entre 0
+ y 255
+, inclusive, que representen la codificación compacta de n
+. La codificación no debe contener bytes iniciales con bits de datos cero: es decir, no puede comenzar con 128
+.
 
 Examples
 InputCopy
-2 2 4 4
-1 1 3 5
-3 1 5 5
+112025
 OutputCopy
-NO
+134 235 25
 InputCopy
-3 3 7 5
-0 0 4 6
-0 0 7 4
+128
 OutputCopy
-YES
+129 0
 InputCopy
-5 2 10 5
-3 1 7 6
-8 1 11 7
+0
 OutputCopy
-YES
+0
 InputCopy
-0 0 1000000 1000000
-0 0 499999 1000000
-500000 0 1000000 1000000
+42
 OutputCopy
-YES
-Note
-En el primer ejemplo, la hoja blanca está totalmente cubierta por las hojas negras.
-
-En el segundo ejemplo, la parte de la hoja blanca se puede ver después de colocar las dos hojas negras. Por ejemplo, el punto (6.5,4.5)
- se encuentra no estrictamente dentro de la hoja blanca y se encuentra estrictamente fuera de ambas hojas negras.
+42
+InputCopy
+16384
+OutputCopy
+129 128 0
+InputCopy
+2147483647
+OutputCopy
+135 255 255 255 127

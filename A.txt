@@ -1,70 +1,146 @@
-A. <-space->
-time limit per test1.5 s.
+A. Arcoiris
+time limit per test2 s.
 memory limit per test256 MB
-Has estado mirando la pantalla de tu computadora durante demasiado tiempo; es hora de darle un descanso e ir a tocar pasto.
+Sea T=(V,E)
+ un árbol con n
+ vértices y n−1
+ aristas. A cada arista del árbol se le puede asignar un color de {0,1,…,K−1}
+.
 
-Tu pantalla es una línea de longitud a
-, y hay n
- pestañas mostradas en ella. Quieres cerrar todas las pestañas haciendo clic en las x en su extremo derecho.
+Un camino simple en un árbol se llama camino K
+-arcoíris si todas las aristas a lo largo del camino de longitud K
+ tienen colores distintos. Se dice que una arista es K
+-arcoíris-válida si se encuentra en al menos un camino K
+-arcoíris. Un árbol se llama K
+-árbol si cada arista en el árbol es K
+-arcoíris-válida.
 
-Cada pestaña es un segmento de longitud len=min(b,am)
-, donde m
- es el número de pestañas restantes. Las pestañas siempre están dispuestas de forma compacta en secuencia desde el extremo izquierdo de la pantalla; es decir, las x estarán a len,2⋅len,3⋅len,…,m⋅len
- unidades de distancia del extremo izquierdo. Por favor, ten en cuenta que la longitud de cada pestaña cambiará a medida que vas cerrando pestañas.
+Tu tarea es asignar colores a las aristas de un árbol dado para formar un K
+-árbol con el mayor K
+ posible. Para cada arista e
+, debes reportar su color asignado c(e)∈{0,1,…,K−1}
+ y los extremos de un camino K
+-arcoíris que contenga a e
+.
 
-Ahora tu cursor está en el extremo izquierdo de la pantalla. Te preguntas cuál es el número mínimo de veces que necesitas mover el mouse para cerrar todas las pestañas.
-
-Si tienes dificultades para entender el enunciado, también puedes consultar la pestaña de tu navegador para una visualización, o haz clic aquí.
+Todos los índices son base cero. Si existen múltiples coloraciones o caminos válidos, se puede imprimir cualquiera.
 
 Input
-Cada prueba contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba t
- (1≤t≤104
-). A continuación sigue la descripción de los casos de prueba.
-
-Cada caso de prueba es una línea con tres enteros a
-, b
-, y n
- (1≤b≤a≤109
-, 1≤n≤109
-).
+La primera línea contiene un solo entero n
+ (2≤n≤105)
+. En las siguientes n−1
+ líneas se te dan las aristas del árbol. En cada una de estas líneas se te dan u
+ y v
+ (0≤u,v≤n−1)
+ describiendo una arista entre los nodos u
+ y v
+.
 
 Output
-Para cada caso de prueba, imprime un único entero — el número mínimo de veces que necesitas mover el mouse para cerrar todas las pestañas.
+Tu salida debe consistir en n
+ líneas.
 
-Example
+En la primera línea imprime el máximo K
+ posible.
+
+En las siguientes n−1
+ líneas, cada línea debe contener tres enteros: c
+, u
+ y v
+, donde 0≤c≤K−1
+ y 0≤u,v≤n−1
+. Estos enteros especifican el color c
+ de una arista y el camino entre u
+ y v
+. Este camino incluye la arista e
+ y es un K
+-arcoíris. El orden de u
+ y v
+ no importa.
+
+Las aristas deben imprimirse en el orden en que se dieron en la entrada.
+
+Examples
 InputCopy
-12
-8 1 6
-9 6 2
-10 3 1
-10 1 10
-9 2 1
-5 5 6
-6 2 7
-9 1 9
-3 2 6
-8 1 7
-8 1 9
-8 2 4
+3
+0 1
+2 1
 OutputCopy
-1
 2
-1
-1
-1
-1
-2
-1
-2
-1
-2
-1
+1 2 0
+0 0 2
+InputCopy
+6
+0 4
+2 3
+5 0
+2 1
+2 0
+OutputCopy
+3
+2 3 4
+0 4 3
+2 3 5
+0 4 1
+1 3 4
+InputCopy
+16
+2 3
+2 4
+4 5
+5 0
+1 5
+6 7
+4 6
+8 7
+3 9
+4 10
+7 11
+8 12
+10 13
+14 12
+15 9
+OutputCopy
+7
+6 8 15
+5 8 15
+5 14 0
+6 14 0
+6 14 1
+3 3 14
+4 8 15
+2 3 14
+0 8 15
+5 14 13
+2 15 11
+1 3 14
+6 14 13
+0 3 14
+1 8 15
 Note
-En el primer caso de prueba, un posible curso de acción es mover tu cursor a 1
- y presionar 6
- veces.
 
-En el segundo caso de prueba, un posible curso de acción es mover tu cursor a 4.5
- y presionar una vez, luego moverlo a 6
- y presionar de nuevo. Se puede demostrar que las pestañas no se pueden cerrar con menos de 2
- movimientos.
+
+Esta es la segunda prueba de ejemplo. Tenemos un árbol con 6 nodos. Los colores están escritos en las aristas. El máximo K posible es 3 y para cada arista e
+ existe un camino que incluye a e
+ y es un 3-arcoíris.
+
+La arista e1={0,4}
+ tiene color 2, el camino entre 3 y 4 incluye a e1
+ y es un 3-arcoíris.
+
+La arista e2={2,3}
+ tiene color 0, el camino entre 4 y 3 incluye a e2
+ y es un 3-arcoíris.
+
+La arista e3={5,0}
+ tiene color 2, el camino entre 3 y 5 incluye a e3
+ y es un 3-arcoíris.
+
+La arista e4={2,1}
+ tiene color 0, el camino entre 4 y 1 incluye a e4
+ y es un 3-arcoíris.
+
+La arista e5={2,0}
+ tiene color 1, el camino entre 3 y 4 incluye a e5
+ y es un 3-arcoíris.
+

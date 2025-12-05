@@ -1,102 +1,67 @@
-D. Dorime
-time limit per test2 s.
+D. Smooth criminal
+time limit per test1 s.
 memory limit per test256 MB
-Hay n
- velas en una menorá de Janucá, y algunas de sus velas están inicialmente encendidas. Podemos describir qué velas están encendidas con una cadena binaria s
-, donde la i
--ésima vela está encendida si y solo si si=1
+Nicolás está creando una nueva lista de reproducción con canciones de diferentes géneros. Tiene n
+ géneros diferentes, y cada género tiene ci
+ canciones diferentes. Cada canción pertenece exactamente a un género. Él quiere añadir m
+ canciones a la lista de reproducción, y deben ser elegidas de los diferentes géneros tan equitativamente como sea posible para que la lista tenga un sonido fluido.
+
+Formalmente, dados n
+ géneros con ci
+ canciones cada uno, quiere elegir m
+ canciones sin reemplazo tan equitativamente como sea posible. ¿Cuál es la mínima diferencia entre el número de canciones del género más seleccionado y el número de canciones del género menos seleccionado?
+
+Asumiendo que ki
+ es la cantidad de canciones que elige del género i
+, quiere minimizar:
+
+maxki−minki
+
+sujeto a 0≤ki≤ci
+ y ∑ki=m
 .
 
-
-Inicialmente, las luces de las velas se describen mediante una cadena a
-. En una operación, seleccionas una vela que está actualmente encendida. Al hacerlo, la vela que seleccionaste permanecerá encendida, y cualquier otra vela cambiará (si estaba encendida, se apagará y si estaba apagada, se encenderá).
-
-Te gustaría hacer que las velas se vean igual que la cadena b
-. Tu tarea es determinar si es posible, y si lo es, encontrar el número mínimo de operaciones requeridas.
-
 Input
-La primera línea contiene un entero t
- (1≤t≤104
-) — el número de casos de prueba. Luego siguen t
- casos.
+La primera línea de la entrada contiene un solo entero t
+ (1≤t≤100
+), el número de casos de prueba.
 
-La primera línea de cada caso de prueba contiene un único entero n
- (1≤n≤105
-) — el número de velas.
+La primera línea de cada caso de prueba contiene dos enteros n
+ (1≤n≤2⋅105
+), el número de géneros, y m
+ (1≤m≤∑ci
+), el número de canciones que quiere elegir para la lista de reproducción.
 
-La segunda línea contiene una cadena a
- de longitud n
- que consiste en los símbolos 0 y 1 — el patrón inicial de luces.
-
-La tercera línea contiene una cadena b
- de longitud n
- que consiste en los símbolos 0 y 1 — el patrón deseado de luces.
+La segunda línea de cada caso de prueba contiene n
+ enteros c1,…,cn
+ (1≤ci≤109
+), el número de canciones en el i
+-ésimo género.
 
 Se garantiza que la suma de n
- no excede 105
+ en todos los casos de prueba no excede 2⋅105
 .
 
 Output
-Para cada caso de prueba, imprime el número mínimo de operaciones requeridas para transformar a
- en b
-, o −1
- si es imposible.
+Imprime un entero por caso de prueba, la diferencia mínima de la cantidad de canciones entre el género más y el menos seleccionado.
 
 Example
 InputCopy
-5
-5
-11010
-11010
 2
-01
-11
-3
-000
-101
-9
-100010111
-101101100
-9
-001011011
-011010101
+4 5
+1 1 3 3
+4 8
+3 4 2 5
 OutputCopy
-0
 1
--1
-3
-4
+0
 Note
-En el primer caso de prueba, las dos cadenas ya son iguales, así que no tenemos que realizar ninguna operación.
-
-En el segundo caso de prueba, podemos realizar una única operación seleccionando la segunda vela para transformar 01
- en 11
+En el primer caso de prueba, Nicolás puede elegir 1
+ canción de cada uno de los dos primeros géneros, 2
+ canciones del tercer género y 1
+ canción del último género. Esto llevará a una diferencia de 2−1=1
 .
 
-En el tercer caso de prueba, es imposible realizar ninguna operación porque no hay velas encendidas para seleccionar.
-
-En el cuarto caso de prueba, podemos realizar las siguientes operaciones para transformar a
- en b
-:
-
-Seleccionar la 7
--a vela: 100010111→011101100
+En el segundo caso de prueba, Nicolás puede elegir 2
+ canciones de cada género por lo que hay una diferencia máxima de 0
 .
-Seleccionar la 2
--a vela: 011101100→110010011
-.
-Seleccionar la 1
--a vela: 110010011→101101100
-.
-En el quinto caso de prueba, podemos realizar las siguientes operaciones para transformar a
- en b
-:
-
-Seleccionar la 6
--a vela: 001011011→110101100
-Seleccionar la 2
--a vela: 110101100→011010011
-Seleccionar la 8
--a vela: 011010011→100101110
-Seleccionar la 7
--a vela: 100101110→011010101

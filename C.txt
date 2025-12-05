@@ -1,102 +1,53 @@
-C. Aquel arbolito
-time limit per test2 s.
+C. El hechicero
+time limit per test1 s.
 memory limit per test256 MB
-Eres un criador de mikemon que se encuentra actualmente a mitad de su viaje para convertirse en un maestro mikemon. Tu obstáculo actual es atravesar el infame Bosque Biridian.
+Hace mucho tiempo, en una torre tranquila llena de calderos burbujeantes y libros de hechizos polvorientos, vivía un mago bastante distraído. Una tarde, decidió preparar una Poción de Poder. La poción comienza con una potencia mágica de 1
+ — modesta, pero llena de potencial.
 
-El bosque
+El mago posee dos runas antiguas, llamadas Runa A
+ y Runa B
+, cada una capaz de multiplicar el poder mágico actual de la poción por un factor entero fijo (no negativo). Sin embargo, tiene una memoria terrible. No puede recordar los valores exactos de estos multiplicadores — solo que:
 
-El Bosque Biridian es una cuadrícula bidimensional que consiste en r
- filas y c
- columnas. Cada celda en el Bosque Biridian puede contener un árbol, o puede estar vacante. Una celda vacante puede estar ocupada por cero o más criadores de mikemon (también puede haber otros criadores aparte de ti en el bosque). Los criadores de mikemon (incluyéndote a ti) no pueden entrar en celdas con árboles. Una de las celdas está designada como la celda de salida.
+El multiplicador de la Runa B
+ es exactamente uno mayor que el de la Runa A
+.
+Si alguna vez aplica la Runa A
+ inmediatamente después de la Runa B
+, la poción reacciona violentamente y pierde todo su poder (cae a cero).
+A pesar de este riesgo, al mago le gusta experimentar. Decide aplicar toda secuencia posible de n
+ runas, cada una siendo A
+ o B
+, a la poción inicial para ver qué tipos de fuerzas mágicas puede obtener.
 
-Se te dará la cuadrícula inicial, incluyendo tu posición inicial, la celda de salida y las posiciones iniciales de todos los demás criadores. Aquí tienes un ejemplo de dicha cuadrícula (del primer ejemplo):
+Mientras experimenta con las runas, se da cuenta de que tendrá demasiada poción. Solo planea tomar un solo sorbo — ¡exactamente una unidad de poder mágico! Ahora necesitará almacenar el poder restante de todos los experimentos en sus frascos.
 
+Por alguna extraña coincidencia del destino, como suele suceder en la magia, cada uno de sus (infinitos) frascos puede contener exactamente n+1
+ unidades de poder mágico.
 
-Movimientos
+El mago es un hombre ordenado; se niega a dejar cualquier frasco parcialmente lleno. Así que ahora se pregunta:
 
-Los criadores (incluyéndote a ti) pueden moverse en el bosque. En un solo movimiento, los criadores pueden realizar una de las siguientes acciones:
-
- 
-No hacer nada.  
-Moverse desde la celda actual a una de las cuatro celdas adyacentes (dos celdas son adyacentes si comparten un lado). Ten en cuenta que los criadores no pueden entrar en celdas con árboles.  
-Si estás ubicado en la celda de salida, puedes abandonar el bosque. Solo tú puedes realizar este movimiento — todos los demás criadores de mikemon nunca abandonarán el bosque usando este tipo de movimiento.
-Después de cada vez que realizas un solo movimiento, cada uno de los otros criadores realiza simultáneamente un solo movimiento (la elección de qué movimiento realizar puede ser diferente para cada uno de los criadores).
-
-Batalla Mikemon
-
-Si tú y t
- (t>0)
- criadores de mikemon están ubicados en la misma celda, ocurrirán exactamente t
- batallas mikemon en ese momento (ya que lucharás contra cada uno de esos t
- criadores una vez). Después de la batalla, todos esos t
- criadores abandonarán el bosque para curar a sus respectivos mikemons.
-
-Ten en cuenta que en el momento en que abandonas el bosque, no pueden ocurrir más batallas mikemon, incluso si otro criador de mikemon se mueve a la celda de salida inmediatamente después de eso. También ten en cuenta que una batalla solo ocurre entre tú y otros criadores — no habrá batalla entre otros dos criadores (puede haber múltiples criadores coexistiendo en una sola celda).
-
-Tu objetivo
-
-Te gustaría salir del bosque. Para hacerlo, tienes que realizar una secuencia de movimientos, terminando con un movimiento del tipo final. Sin embargo, antes de realizar cualquier movimiento, publicas esta secuencia en tu Blog personal de ídolo virtual. Luego, seguirás esta secuencia de movimientos fielmente.
-
-Objetivo de otros criadores
-
-Debido a que publicas la secuencia en tu Blog, todos los demás criadores conocerán tu secuencia exacta de movimientos incluso antes de que realices tu primer movimiento. Todos ellos se moverán de tal manera que garantizarán una batalla mikemon contigo, si es posible. Los criadores que no puedan luchar contigo no harán nada.
-
-Tu tarea
-
-Imprime el número mínimo de batallas mikemon en las que debes participar, asumiendo que eliges la secuencia de movimientos que minimiza este número. Ten en cuenta que no se requiere que minimices el número de movimientos que realizas.
+¿Será posible dividir todo el poder mágico sobrante (después de tomar su sorbo) en frascos de tal manera que ningún frasco quede parcialmente lleno, independientemente de cuál sea el multiplicador de poder de la runa A
+?
 
 Input
-La primera línea consiste en dos enteros: r
- y c
- (1≤r,c≤1000
-), denotando el número de filas y el número de columnas en el Bosque Biridian. Las siguientes r
- filas representarán cada una una fila del mapa, donde cada carácter representa el contenido de una sola celda:
+La primera línea contiene el número t
+ de casos de prueba (1≤t≤103
+).
 
- 
-'T': Una celda ocupada por un árbol.  
-'S': Una celda vacía, y tu posición inicial. Habrá exactamente una aparición de esto en el mapa.  
-'E': Una celda vacía, y donde se encuentra la salida. Habrá exactamente una aparición de esto en el mapa.  
-Un dígito (0-9): Una celda representada por un dígito X significa que la celda está vacía y está ocupada por X criadores (en particular, si X es cero, significa que la celda no está ocupada por ningún criador).
-Se garantiza que será posible para ti ir desde tu posición inicial hasta la celda de salida a través de una secuencia de movimientos.
+Cada una de las siguientes t
+ líneas contiene un solo entero n
+, el número de aplicaciones de runas (0≤n≤108
+).
 
 Output
-Una única línea que denote el número mínimo posible de batallas mikemon en las que tienes que participar si eliges una estrategia que minimice este número.
+Para cada caso de prueba, imprime una sola línea que contenga "yes" si todo el poder mágico restante puede ser embotellado de acuerdo con las especificaciones del mago para cualquier valor que pueda tomar el multiplicador de poder de la runa A
+, y "no" en caso contrario.
 
-Examples
+Example
 InputCopy
-5 7
-000E0T3
-T0TT0T0
-010T0T0
-2T0T0T0
-0T0S000
-OutputCopy
-3
-InputCopy
-1 4
-SE23
-OutputCopy
 2
-Note
-La siguiente imagen ilustra el primer ejemplo. La línea azul denota una posible secuencia de movimientos que deberías publicar en tu blog:
-
-
-Los tres criadores en el lado izquierdo del mapa podrán luchar contigo — el criador solitario simplemente puede quedarse en su lugar hasta que llegues, mientras que los otros dos criadores pueden moverse hacia donde está el criador solitario y quedarse allí hasta que llegues. Los tres criadores a la derecha no tienen forma de luchar contigo, por lo que se quedarán en su lugar.
-
-Para el segundo ejemplo, deberías publicar esta secuencia en tu Blog:
-
-
-Esto es lo que sucede. Primero, te mueves una celda a la derecha.
-
-
-Luego, los dos criadores directamente a la derecha de la salida se moverán simultáneamente a la izquierda. Los otros tres criadores no pueden luchar contigo, así que no harán nada.
-
-
-Terminas en la misma celda con 2
- criadores, así que se llevan a cabo 2
- batallas mikemon. Después de esas batallas, todos tus oponentes abandonan el bosque.
-
-
-Finalmente, haces otro movimiento abandonando el bosque.
-
-
+2
+5
+OutputCopy
+yes
+no

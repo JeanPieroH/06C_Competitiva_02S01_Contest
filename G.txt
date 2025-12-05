@@ -1,101 +1,74 @@
-G. Triangulización
-time limit per test2 s.
+G. Cadenass
+time limit per test3 s.
 memory limit per test256 MB
-Considera un triángulo infinito formado por capas. Enumeremos las capas, comenzando desde uno, desde la parte superior del triángulo (de arriba a abajo). La k
--ésima capa del triángulo contiene k
- puntos, numerados de izquierda a derecha. Cada punto de un triángulo infinito se describe mediante un par de números (r,c)
- (1≤c≤r
-), donde r
- es el número de la capa, y c
- es el número del punto en la capa. Desde cada punto (r,c)
- hay dos aristas dirigidas hacia los puntos (r+1,c)
- y (r+1,c+1)
-, pero solo una de las aristas está activada. Si r+c
- es par, entonces la arista hacia el punto (r+1,c)
- está activada, de lo contrario la arista hacia el punto (r+1,c+1)
- está activada. Mira la imagen para una mejor comprensión.
+Definimos d(a,b)
+ — la distancia entre dos cadenas a
+ y b
+ como el número de inserciones y eliminaciones de un solo carácter necesarias para transformar una cadena en la otra.
 
-Las aristas activadas están coloreadas en negro. Las aristas no activadas están coloreadas en gris.
-Desde el punto (r1,c1)
- es posible llegar al punto (r2,c2)
-, si existe un camino entre ellos solo de aristas activadas. Por ejemplo, en la imagen de arriba, hay un camino desde (1,1)
- a (3,2)
-, pero no hay un camino desde (2,1)
- a (1,1)
-.
-
-Inicialmente, estás en el punto (1,1)
-. En cada turno, puedes:
-
-Reemplazar la arista activada para el punto (r,c)
-. Es decir, si la arista hacia el punto (r+1,c)
- está activada, entonces en lugar de ella, la arista hacia el punto (r+1,c+1)
- se activa; de lo contrario, si la arista hacia el punto (r+1,c+1)
- está activada, entonces en lugar de ella, la arista hacia el punto (r+1,c)
- se activa. Esta acción aumenta el costo del camino en 1
-;
-Moverte desde el punto actual a otro siguiendo la arista activada. Esta acción no aumenta el costo del camino.
-Se te da una secuencia de n
- puntos de un triángulo infinito (r1,c1),(r2,c2),…,(rn,cn)
-. Encuentra el camino de costo mínimo desde (1,1)
-, pasando por todos los n
- puntos en orden arbitrario.
+Se te da una lista de n
+ cadenas distintas por pares s1,…,sn
+ que consisten solo en letras latinas minúsculas. Para cada cadena, encuentra la cadena más cercana a ella de la misma lista. Es decir, para cada i
+, encuentra un j
+ tal que j≠i
+ y d(si,sj)
+ sea lo más pequeño posible. Si hay múltiples cadenas con la misma distancia, elige la lexicográficamente menor.
 
 Input
-La primera línea contiene un entero t
- (1≤t≤104
-) que es el número de casos de prueba. Luego siguen t
- casos de prueba.
+Cada prueba contiene múltiples casos de prueba. La primera línea contiene el número de casos de prueba t
+ (1≤t≤100
+). A continuación sigue la descripción de los casos de prueba.
 
-Cada caso de prueba comienza con una línea que contiene un entero n
- (1≤n≤2⋅105
-) que es el número de puntos a visitar.
+La primera línea de cada caso de prueba contiene un entero n
+ (2≤n≤2⋅104
+) — el número de cadenas.
 
-La segunda línea contiene n
- números r1,r2,…,rn
- (1≤ri≤109
-), donde ri
- es el número de la capa en la cual se encuentra el i
--ésimo punto.
-
-La tercera línea contiene n
- números c1,c2,…,cn
- (1≤ci≤ri
-), donde ci
- es el número del i
--ésimo punto en la capa ri
-.
-
-Se garantiza que todos los n
- puntos son distintos.
-
-Se garantiza que siempre hay al menos una forma de recorrer todos los n
- puntos.
+Luego siguen n
+ líneas, que contienen las cadenas s1,…,sn
+ que consisten solo en letras latinas minúsculas, 1≤|si|≤8
+. Se garantiza que las cadenas son distintas por pares.
 
 Se garantiza que la suma de n
- en todos los casos de prueba no excede 2⋅105
+ en todos los casos de prueba no excede 2⋅104
 .
 
 Output
-Para cada caso de prueba, imprime el costo mínimo de un camino que pase por todos los puntos en el caso de prueba correspondiente.
+Para cada caso de prueba, imprime dos líneas de n
+ enteros, separados por espacios.
+
+En la primera línea, imprime los números a1,…,an
+, donde ai
+ es el índice de la cadena más cercana a si
+ (1≤ai≤n,ai≠i
+).
+
+En la segunda línea, imprime las distancias mínimas correspondientes: d(s1,sa1),…d(sn,san)
+.
 
 Example
 InputCopy
-4
 3
-1 4 2
-1 3 1
 2
-2 4
-2 3
-2
-1 1000000000
-1 1000000000
+abc
+abd
+6
+abcde
+abcd
+abcfe
+bcde
+bcfe
+aaaaa
 4
-3 10 5 8
-2 5 2 4
+codeforc
+code
+forces
+polygon
 OutputCopy
-0
-1
-999999999
-2
+2 1 
+2 2 
+2 1 5 1 3 2 
+1 1 1 1 1 7 
+2 1 2 2 
+4 4 6 9 
+Note
+Ten en cuenta que la definición de distancia en este problema es diferente de la definición estándar de "distancia de edición", ya que no permite reemplazos.
